@@ -1,0 +1,13 @@
+databaton:
+  mode: local
+  local-server:
+    port: 9988
+  remote-server:
+    host: 127.0.0.1
+    port: 9987
+    username: admin
+    password: 123456
+  crypt:
+    code: 1
+    algorithm: AES/ECB/PKCS5Padding
+    key: 1234567890123456
