@@ -1,6 +1,8 @@
 package io.databaton.net.databaton.handler;
 
+import io.databaton.config.DataBatonConfig;
 import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
+import io.databaton.utils.RunUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
@@ -10,15 +12,20 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class RemoteServerToLocalServerHandler extends SimpleChannelInboundHandler<DataBatonDispatchMessageProto.DataBatonDispatchMessage> {
 
-    private Channel toLocalClientChannel;
+    private final Channel toLocalClientChannel;
+    private final DataBatonConfig dataBatonConfig;
 
-    public RemoteServerToLocalServerHandler(Channel toLocalClientChannel){
+    public RemoteServerToLocalServerHandler(Channel toLocalClientChannel, DataBatonConfig dataBatonConfig){
         this.toLocalClientChannel = toLocalClientChannel;
+        this.dataBatonConfig = dataBatonConfig;
     }
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, DataBatonDispatchMessageProto.DataBatonDispatchMessage msg) throws Exception {
-//        log.info("proxy server return data, target server:{}", msg.getDstHost());
+        RunUtils.runIfSatisfy(dataBatonConfig.getDebug(), ()->{
+            log.info("proxy server return data, target server:{}", msg.getDstHost());
+        });
+
         if(toLocalClientChannel.isActive()){
             byte[] data = msg.getData().toByteArray();
             ByteBuf buf = ctx.alloc().buffer(data.length);

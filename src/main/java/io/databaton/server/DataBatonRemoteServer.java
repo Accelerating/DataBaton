@@ -28,7 +28,7 @@ public class DataBatonRemoteServer {
         int remoteServerPort = dataBatonConfig.getRemoteServer().getPort();
         bootstrap.bind(remoteServerPort).addListener((ChannelFutureListener) channelFuture -> {
             if (channelFuture.isSuccess()) {
-                log.info("transit server start successfully, port:{}", remoteServerPort);
+                log.info("data-baton server start successfully, port:{}", remoteServerPort);
             }
         }).sync();
     }

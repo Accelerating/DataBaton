@@ -1,4 +1,5 @@
 databaton:
+  debug: true
   mode: local
   local-server:
     port: 9988

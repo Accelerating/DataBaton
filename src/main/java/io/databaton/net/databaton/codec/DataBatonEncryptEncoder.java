@@ -1,5 +1,6 @@
 package io.databaton.net.databaton.codec;
 
+import io.databaton.config.DataBatonConfig;
 import io.databaton.crypt.CryptProcessor;
 import io.databaton.net.databaton.model.DataBatonMessage;
 import io.netty.buffer.ByteBuf;
@@ -11,10 +12,13 @@ import lombok.extern.slf4j.Slf4j;
 public class DataBatonEncryptEncoder extends MessageToByteEncoder<DataBatonMessage>{
 
     private final CryptProcessor cryptProcessor;
+    private final DataBatonConfig dataBatonConfig;
 
-    public DataBatonEncryptEncoder(CryptProcessor cryptProcessor){
+    public DataBatonEncryptEncoder(CryptProcessor cryptProcessor, DataBatonConfig dataBatonConfig){
         this.cryptProcessor = cryptProcessor;
+        this.dataBatonConfig = dataBatonConfig;
     }
+
 
     @Override
     protected void encode(ChannelHandlerContext ctx, DataBatonMessage msg, ByteBuf out) throws Exception {

@@ -5,7 +5,7 @@ import io.databaton.crypt.CryptProcessor;
 import io.databaton.net.databaton.codec.DataBatonDecryptDecoder;
 import io.databaton.net.databaton.codec.DataBatonEncryptEncoder;
 import io.databaton.net.databaton.handler.DataBatonDispatchHandler;
-import io.databaton.net.databaton.handler.DataBatonLoginHandler;
+import io.databaton.net.databaton.handler.DataBatonAuthenticationHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -27,9 +27,9 @@ public class DataBatonRemoteServerHandlerInitializer extends ChannelInitializer<
     protected void initChannel(SocketChannel ch) throws Exception {
 
         ChannelPipeline pipeline = ch.pipeline();
-        pipeline.addLast(new DataBatonEncryptEncoder(cryptProcessor));
-        pipeline.addLast(new DataBatonDecryptDecoder(cryptProcessor));
-        pipeline.addLast(new DataBatonLoginHandler(dataBatonConfig));
-        pipeline.addLast(new DataBatonDispatchHandler(clientGroup));
+        pipeline.addLast(new DataBatonEncryptEncoder(cryptProcessor, dataBatonConfig));
+        pipeline.addLast(new DataBatonDecryptDecoder(cryptProcessor, dataBatonConfig));
+        pipeline.addLast(new DataBatonAuthenticationHandler(dataBatonConfig));
+        pipeline.addLast(new DataBatonDispatchHandler(clientGroup, dataBatonConfig));
     }
 }

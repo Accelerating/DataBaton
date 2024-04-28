@@ -1,10 +1,12 @@
 package io.databaton.net.databaton.codec;
 
+import io.databaton.config.DataBatonConfig;
 import io.databaton.crypt.CryptProcessor;
 import io.databaton.enums.OpType;
 import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
 import io.databaton.net.databaton.model.DataBatonLoginMessageProto;
 import io.databaton.net.databaton.model.DataBatonMessage;
+import io.databaton.utils.RunUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
@@ -16,9 +18,19 @@ import java.util.List;
 public class DataBatonDecryptDecoder extends ByteToMessageDecoder {
 
     private final CryptProcessor cryptProcessor;
+    private final DataBatonConfig dataBatonConfig;
 
-    public DataBatonDecryptDecoder(CryptProcessor cryptProcessor){
+    public DataBatonDecryptDecoder(CryptProcessor cryptProcessor, DataBatonConfig dataBatonConfig){
         this.cryptProcessor = cryptProcessor;
+        this.dataBatonConfig = dataBatonConfig;
+    }
+
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        RunUtils.runIfSatisfy(dataBatonConfig.getDebug(), ()->{
+            log.info("new connection");
+        });
+        super.channelActive(ctx);
     }
 
     @Override

@@ -9,6 +9,7 @@ import io.databaton.net.databaton.handler.RemoteServerToLocalServerHandler;
 import io.databaton.net.databaton.handler.LocalServerToRemoteServerHandler;
 import io.databaton.net.dispatch.LocalClientToTargetServerHandler;
 import io.databaton.net.dispatch.TargetServerToLocalClientHandler;
+import io.databaton.utils.RunUtils;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -83,7 +84,6 @@ public class Socks5CommandRequestHandler extends SimpleChannelInboundHandler<Def
                 future.channel().close();
             }
         });
-//        dispatcher.dispatch(ctx, request);
     }
 
     private void proxyDispatch(ChannelHandlerContext clientToLocalServerCtx, DefaultSocks5CommandRequest request) {
@@ -97,17 +97,20 @@ public class Socks5CommandRequestHandler extends SimpleChannelInboundHandler<Def
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(new DataBatonDecryptDecoder(cryptProcessor));
-                        ch.pipeline().addLast(new DataBatonEncryptEncoder(cryptProcessor));
-                        ch.pipeline().addLast(new RemoteServerToLocalServerHandler(clientToLocalServerCtx.channel()));
+                        ch.pipeline().addLast(new DataBatonDecryptDecoder(cryptProcessor, dataBatonConfig));
+                        ch.pipeline().addLast(new DataBatonEncryptEncoder(cryptProcessor, dataBatonConfig));
+                        ch.pipeline().addLast(new RemoteServerToLocalServerHandler(clientToLocalServerCtx.channel(), dataBatonConfig));
                     }
                 });
 
         DataBatonServerConfig remoteServer = dataBatonConfig.getRemoteServer();
+
         bootstrap.connect(remoteServer.getHost(), remoteServer.getPort()).addListener((ChannelFutureListener) future -> {
             if(future.isSuccess()){
+                RunUtils.runIfSatisfy(dataBatonConfig.getDebug(), ()->{
+                    log.info("connect to remote server, host:{}, port:{}", remoteServer.getHost(), remoteServer.getPort());
+                });
                 clientToLocalServerCtx.pipeline().addLast(new LocalServerToRemoteServerHandler(future.channel(), targetHost, targetPort, dataBatonConfig));
-
                 DefaultSocks5CommandResponse commandResponse = new DefaultSocks5CommandResponse(Socks5CommandStatus.SUCCESS, socks5AddressType);
                 clientToLocalServerCtx.writeAndFlush(commandResponse);
                 clientToLocalServerCtx.pipeline().remove(Socks5CommandRequestHandler.class);
