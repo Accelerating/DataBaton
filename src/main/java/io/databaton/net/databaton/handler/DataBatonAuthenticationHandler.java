@@ -4,7 +4,6 @@ import io.databaton.config.DataBatonConfig;
 import io.databaton.config.DataBatonServerConfig;
 import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
 import io.databaton.net.databaton.model.DataBatonLoginMessageProto;
-import io.databaton.utils.RunUtils;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
@@ -25,9 +24,9 @@ public class DataBatonAuthenticationHandler extends SimpleChannelInboundHandler<
         String password = remoteServer.getPassword();
 
         if(username.equals(msg.getUsername()) && password.equals(msg.getPassword())){
-            RunUtils.runIfSatisfy(dataBatonConfig.getDebug(), ()->{
+            if(dataBatonConfig.getDebug()) {
                 log.info("authentication success");
-            });
+            };
             DataBatonDispatchMessageProto.DataBatonDispatchMessage.Builder builder = DataBatonDispatchMessageProto.DataBatonDispatchMessage.newBuilder();
             builder.setDstHost(msg.getDstHost());
             builder.setDstPort(msg.getDstPort());

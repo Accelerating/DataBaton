@@ -2,7 +2,6 @@ package io.databaton.net.databaton.handler;
 
 import io.databaton.config.DataBatonConfig;
 import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
-import io.databaton.utils.RunUtils;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.Channel;
@@ -32,14 +31,21 @@ public class DataBatonDispatchHandler extends SimpleChannelInboundHandler<DataBa
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, DataBatonDispatchMessageProto.DataBatonDispatchMessage msg) throws Exception {
-        RunUtils.runIfSatisfy(dataBatonConfig.getDebug(), ()->{
+        if(dataBatonConfig.getDebug()) {
             log.info("dispatch data to target server, host:{}, port:{}", msg.getDstHost(), msg.getDstPort());
-        });
+        };
         Channel channel = getChannel(ctx, msg);
         byte[] data = msg.getData().toByteArray();
         ByteBuf buf = ctx.alloc().buffer(data.length);
         buf.writeBytes(data);
-        channel.writeAndFlush(buf);
+        try{
+            channel.writeAndFlush(buf);
+        }finally {
+//            if(buf.refCnt() > 0){
+//                buf.release();
+//            }
+        }
+
 
     }
 

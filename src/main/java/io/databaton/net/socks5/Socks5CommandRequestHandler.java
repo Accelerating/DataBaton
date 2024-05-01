@@ -5,11 +5,10 @@ import io.databaton.config.DataBatonServerConfig;
 import io.databaton.crypt.CryptProcessor;
 import io.databaton.net.databaton.codec.DataBatonDecryptDecoder;
 import io.databaton.net.databaton.codec.DataBatonEncryptEncoder;
-import io.databaton.net.databaton.handler.RemoteServerToLocalServerHandler;
 import io.databaton.net.databaton.handler.LocalServerToRemoteServerHandler;
+import io.databaton.net.databaton.handler.RemoteServerToLocalServerHandler;
 import io.databaton.net.dispatch.LocalClientToTargetServerHandler;
 import io.databaton.net.dispatch.TargetServerToLocalClientHandler;
-import io.databaton.utils.RunUtils;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -107,9 +106,9 @@ public class Socks5CommandRequestHandler extends SimpleChannelInboundHandler<Def
 
         bootstrap.connect(remoteServer.getHost(), remoteServer.getPort()).addListener((ChannelFutureListener) future -> {
             if(future.isSuccess()){
-                RunUtils.runIfSatisfy(dataBatonConfig.getDebug(), ()->{
+                if(dataBatonConfig.getDebug()) {
                     log.info("connect to remote server, host:{}, port:{}", remoteServer.getHost(), remoteServer.getPort());
-                });
+                };
                 clientToLocalServerCtx.pipeline().addLast(new LocalServerToRemoteServerHandler(future.channel(), targetHost, targetPort, dataBatonConfig));
                 DefaultSocks5CommandResponse commandResponse = new DefaultSocks5CommandResponse(Socks5CommandStatus.SUCCESS, socks5AddressType);
                 clientToLocalServerCtx.writeAndFlush(commandResponse);

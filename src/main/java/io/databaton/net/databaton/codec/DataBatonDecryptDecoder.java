@@ -6,7 +6,6 @@ import io.databaton.enums.OpType;
 import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
 import io.databaton.net.databaton.model.DataBatonLoginMessageProto;
 import io.databaton.net.databaton.model.DataBatonMessage;
-import io.databaton.utils.RunUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
@@ -27,9 +26,9 @@ public class DataBatonDecryptDecoder extends ByteToMessageDecoder {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        RunUtils.runIfSatisfy(dataBatonConfig.getDebug(), ()->{
+        if(dataBatonConfig.getDebug()) {
             log.info("new connection");
-        });
+        };
         super.channelActive(ctx);
     }
 

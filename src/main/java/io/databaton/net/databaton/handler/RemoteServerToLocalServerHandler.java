@@ -2,7 +2,6 @@ package io.databaton.net.databaton.handler;
 
 import io.databaton.config.DataBatonConfig;
 import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
-import io.databaton.utils.RunUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
@@ -22,15 +21,22 @@ public class RemoteServerToLocalServerHandler extends SimpleChannelInboundHandle
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, DataBatonDispatchMessageProto.DataBatonDispatchMessage msg) throws Exception {
-        RunUtils.runIfSatisfy(dataBatonConfig.getDebug(), ()->{
+        if(dataBatonConfig.getDebug()) {
             log.info("proxy server return data, target server:{}", msg.getDstHost());
-        });
+        };
 
         if(toLocalClientChannel.isActive()){
             byte[] data = msg.getData().toByteArray();
             ByteBuf buf = ctx.alloc().buffer(data.length);
-            buf.writeBytes(data);
-            toLocalClientChannel.writeAndFlush(buf);
+            try{
+                buf.writeBytes(data);
+                toLocalClientChannel.writeAndFlush(buf);
+            }finally {
+//                if(buf.refCnt() > 0){
+//                    buf.release();
+//                }
+            }
+
         }
     }
 }

@@ -2,8 +2,8 @@ package io.databaton.server;
 
 import io.databaton.config.DataBatonConfig;
 import io.databaton.crypt.CryptProcessor;
-import io.databaton.net.socks5.Socks5InitialRequestHandler;
 import io.databaton.net.socks5.Socks5CommandRequestHandler;
+import io.databaton.net.socks5.Socks5InitialRequestHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.nio.NioEventLoopGroup;

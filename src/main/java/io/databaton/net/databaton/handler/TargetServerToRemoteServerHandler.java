@@ -5,7 +5,6 @@ import io.databaton.config.DataBatonConfig;
 import io.databaton.enums.OpType;
 import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
 import io.databaton.net.databaton.model.DataBatonMessage;
-import io.databaton.utils.RunUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
@@ -27,24 +26,29 @@ public class TargetServerToRemoteServerHandler extends ChannelInboundHandlerAdap
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        if(toLocalServerChannel.isActive()){
-            ByteBuf buf = (ByteBuf) msg;
-            byte[] data = new byte[buf.readableBytes()];
-            buf.readBytes(data);
-            DataBatonDispatchMessageProto.DataBatonDispatchMessage.Builder builder = DataBatonDispatchMessageProto.DataBatonDispatchMessage.newBuilder();
-            builder.setData(ByteString.copyFrom(data));
-            builder.setDstHost(ctx.channel().remoteAddress().toString());
-            builder.setDstPort(0);
+        try{
+            if(toLocalServerChannel.isActive()){
+                ByteBuf buf = (ByteBuf) msg;
+                byte[] data = new byte[buf.readableBytes()];
 
-            byte[] payload = builder.build().toByteArray();
-            RunUtils.runIfSatisfy(dataBatonConfig.getDebug(), ()->{
-                log.info("dispatch data to remote server, host:{}", builder.getDstHost());
-            });
-            toLocalServerChannel.writeAndFlush(new DataBatonMessage(OpType.DISPATCH.genOperationTypeBytes(), payload));
-        }else{
-            toLocalServerChannel.close();
+                buf.readBytes(data);
+                DataBatonDispatchMessageProto.DataBatonDispatchMessage.Builder builder = DataBatonDispatchMessageProto.DataBatonDispatchMessage.newBuilder();
+                builder.setData(ByteString.copyFrom(data));
+                builder.setDstHost(ctx.channel().remoteAddress().toString());
+                builder.setDstPort(0);
+
+                byte[] payload = builder.build().toByteArray();
+                if(dataBatonConfig.getDebug()) {
+                    log.info("dispatch data to remote server, host:{}", builder.getDstHost());
+                };
+                toLocalServerChannel.writeAndFlush(new DataBatonMessage(OpType.DISPATCH.genOperationTypeBytes(), payload));
+            }else{
+                toLocalServerChannel.close();
+            }
+        }finally {
             ReferenceCountUtil.release(msg);
         }
+
     }
 
 
