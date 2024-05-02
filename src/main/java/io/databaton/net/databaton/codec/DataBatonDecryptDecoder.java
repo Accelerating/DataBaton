@@ -26,9 +26,7 @@ public class DataBatonDecryptDecoder extends ByteToMessageDecoder {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        if(dataBatonConfig.getDebug()) {
-            log.info("new connection");
-        };
+        log.debug("new connection");
         super.channelActive(ctx);
     }
 

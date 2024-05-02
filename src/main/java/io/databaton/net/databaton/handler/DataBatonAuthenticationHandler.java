@@ -24,9 +24,7 @@ public class DataBatonAuthenticationHandler extends SimpleChannelInboundHandler<
         String password = remoteServer.getPassword();
 
         if(username.equals(msg.getUsername()) && password.equals(msg.getPassword())){
-            if(dataBatonConfig.getDebug()) {
-                log.info("authentication success");
-            };
+            log.debug("authentication success");
             DataBatonDispatchMessageProto.DataBatonDispatchMessage.Builder builder = DataBatonDispatchMessageProto.DataBatonDispatchMessage.newBuilder();
             builder.setDstHost(msg.getDstHost());
             builder.setDstPort(msg.getDstPort());

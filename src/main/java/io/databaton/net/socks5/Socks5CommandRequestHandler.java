@@ -106,16 +106,14 @@ public class Socks5CommandRequestHandler extends SimpleChannelInboundHandler<Def
 
         bootstrap.connect(remoteServer.getHost(), remoteServer.getPort()).addListener((ChannelFutureListener) future -> {
             if(future.isSuccess()){
-                if(dataBatonConfig.getDebug()) {
-                    log.info("connect to remote server, host:{}, port:{}", remoteServer.getHost(), remoteServer.getPort());
-                };
+                log.debug("connect to remote server, host:{}, port:{}", remoteServer.getHost(), remoteServer.getPort());
                 clientToLocalServerCtx.pipeline().addLast(new LocalServerToRemoteServerHandler(future.channel(), targetHost, targetPort, dataBatonConfig));
                 DefaultSocks5CommandResponse commandResponse = new DefaultSocks5CommandResponse(Socks5CommandStatus.SUCCESS, socks5AddressType);
                 clientToLocalServerCtx.writeAndFlush(commandResponse);
                 clientToLocalServerCtx.pipeline().remove(Socks5CommandRequestHandler.class);
                 clientToLocalServerCtx.pipeline().remove(Socks5CommandRequestDecoder.class);
             }else{
-                log.error("connect to remote server failed");
+                log.error("connect to remote server failed, host:{}, port:{}", remoteServer.getHost(), remoteServer.getPort());
                 DefaultSocks5CommandResponse commandResponse = new DefaultSocks5CommandResponse(Socks5CommandStatus.FAILURE, socks5AddressType);
                 clientToLocalServerCtx.writeAndFlush(commandResponse);
                 future.channel().close();

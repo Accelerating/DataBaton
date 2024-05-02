@@ -38,9 +38,7 @@ public class TargetServerToRemoteServerHandler extends ChannelInboundHandlerAdap
                 builder.setDstPort(0);
 
                 byte[] payload = builder.build().toByteArray();
-                if(dataBatonConfig.getDebug()) {
-                    log.info("dispatch data to remote server, host:{}", builder.getDstHost());
-                };
+                log.debug("dispatch data to remote server, host:{}", builder.getDstHost());
                 toLocalServerChannel.writeAndFlush(new DataBatonMessage(OpType.DISPATCH.genOperationTypeBytes(), payload));
             }else{
                 toLocalServerChannel.close();

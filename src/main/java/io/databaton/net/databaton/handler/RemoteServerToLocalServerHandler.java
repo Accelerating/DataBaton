@@ -21,21 +21,14 @@ public class RemoteServerToLocalServerHandler extends SimpleChannelInboundHandle
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, DataBatonDispatchMessageProto.DataBatonDispatchMessage msg) throws Exception {
-        if(dataBatonConfig.getDebug()) {
-            log.info("proxy server return data, target server:{}", msg.getDstHost());
-        };
-
+        log.debug("proxy server return data, target server:{}", msg.getDstHost());
         if(toLocalClientChannel.isActive()){
             byte[] data = msg.getData().toByteArray();
             ByteBuf buf = ctx.alloc().buffer(data.length);
-            try{
-                buf.writeBytes(data);
-                toLocalClientChannel.writeAndFlush(buf);
-            }finally {
-//                if(buf.refCnt() > 0){
-//                    buf.release();
-//                }
-            }
+
+            buf.writeBytes(data);
+            toLocalClientChannel.writeAndFlush(buf);
+
 
         }
     }

@@ -1,7 +1,7 @@
 databaton:
-  debug: false
   mode: local
   local-server:
+    type: socks5
     port: 9988
   remote-server:
     host: 127.0.0.1
@@ -12,3 +12,9 @@ databaton:
     code: 1
     algorithm: AES/ECB/PKCS5Padding
     key: 1234567890123456
+
+
+logging:
+  level:
+    io:
+      databaton: debug
