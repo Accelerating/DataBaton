@@ -1,6 +1,7 @@
 package io.databaton;
 
 import io.databaton.config.DataBatonConfig;
+import io.databaton.config.PacConfig;
 import io.databaton.crypt.CryptProcessor;
 import io.databaton.enums.ServerMode;
 import io.databaton.server.DataBatonLocalServer;
@@ -33,6 +34,7 @@ public class DataBatonApplication implements CommandLineRunner {
 
         String mode = dataBatonConfig.getMode();
         if(ServerMode.LOCAL.equals(mode)){
+            PacConfig.load(dataBatonConfig.getPac());
             DataBatonLocalServer transitLocalServer = new DataBatonLocalServer(dataBatonConfig, cryptProcessor);
             transitLocalServer.start(bossGroup, workerGroup, clientGroup);
         }

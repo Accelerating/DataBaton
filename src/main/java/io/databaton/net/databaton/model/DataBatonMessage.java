@@ -30,7 +30,7 @@ public class DataBatonMessage {
     public static final int OP1_IDX = 5;
 
     /**
-     * operation part3
+     * operation part4
      */
     private byte op4;
     public static final int OP4_IDX = 6;

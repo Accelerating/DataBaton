@@ -2,6 +2,7 @@ package io.databaton.net.socks5;
 
 import io.databaton.config.DataBatonConfig;
 import io.databaton.config.DataBatonServerConfig;
+import io.databaton.config.PacConfig;
 import io.databaton.crypt.CryptProcessor;
 import io.databaton.net.databaton.codec.DataBatonDecryptDecoder;
 import io.databaton.net.databaton.codec.DataBatonEncryptEncoder;
@@ -49,13 +50,16 @@ public class Socks5CommandRequestHandler extends SimpleChannelInboundHandler<Def
             return;
         }
 
-
-//        directDispatch(ctx, msg);
-        proxyDispatch(ctx, msg);
+        String host = msg.dstAddr();
+        if(PacConfig.isProxyDomain(host)){
+            proxyDispatch(ctx, msg);
+        }else{
+            directDispatch(ctx, msg);
+        }
     }
 
 
-    private void directDispatch(ChannelHandlerContext clientToLocalServerCtx, DefaultSocks5CommandRequest request) {
+    private void directDispatch(ChannelHandlerContext clientToLocalServerCtx, DefaultSocks5CommandRequest request) throws InterruptedException {
         String targetHost = request.dstAddr();
         int targetPort = request.dstPort();
         Socks5AddressType socks5AddressType = request.dstAddrType();
@@ -70,7 +74,7 @@ public class Socks5CommandRequestHandler extends SimpleChannelInboundHandler<Def
                     }
                 });
 
-        bootstrap.connect(targetHost, targetPort).addListener((ChannelFutureListener) future -> {
+        bootstrap.connect(targetHost, targetPort).sync().addListener((ChannelFutureListener) future -> {
             if (future.isSuccess()) {
                 clientToLocalServerCtx.pipeline().addLast(new LocalClientToTargetServerHandler(future.channel()));
                 DefaultSocks5CommandResponse commandResponse = new DefaultSocks5CommandResponse(Socks5CommandStatus.SUCCESS, socks5AddressType);
@@ -85,7 +89,7 @@ public class Socks5CommandRequestHandler extends SimpleChannelInboundHandler<Def
         });
     }
 
-    private void proxyDispatch(ChannelHandlerContext clientToLocalServerCtx, DefaultSocks5CommandRequest request) {
+    private void proxyDispatch(ChannelHandlerContext clientToLocalServerCtx, DefaultSocks5CommandRequest request) throws InterruptedException {
         String targetHost = request.dstAddr();
         int targetPort = request.dstPort();
         Socks5AddressType socks5AddressType = request.dstAddrType();
@@ -104,7 +108,7 @@ public class Socks5CommandRequestHandler extends SimpleChannelInboundHandler<Def
 
         DataBatonServerConfig remoteServer = dataBatonConfig.getRemoteServer();
 
-        bootstrap.connect(remoteServer.getHost(), remoteServer.getPort()).addListener((ChannelFutureListener) future -> {
+        bootstrap.connect(remoteServer.getHost(), remoteServer.getPort()).sync().addListener((ChannelFutureListener) future -> {
             if(future.isSuccess()){
                 log.debug("connect to remote server, host:{}, port:{}", remoteServer.getHost(), remoteServer.getPort());
                 clientToLocalServerCtx.pipeline().addLast(new LocalServerToRemoteServerHandler(future.channel(), targetHost, targetPort, dataBatonConfig));

@@ -1,5 +1,6 @@
 databaton:
   mode: local
+  pac:
   local-server:
     type: socks5
     port: 9988
