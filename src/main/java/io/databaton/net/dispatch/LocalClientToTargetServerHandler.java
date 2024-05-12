@@ -16,7 +16,6 @@ public class LocalClientToTargetServerHandler extends ChannelInboundHandlerAdapt
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf buf = (ByteBuf) msg;
         if(toTargetServerChannel.isActive()){
             toTargetServerChannel.writeAndFlush(msg);
         }else{

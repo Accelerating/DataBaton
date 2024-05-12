@@ -1,7 +1,7 @@
 package io.databaton.net.socks5;
 
 import io.databaton.config.DataBatonConfig;
-import io.databaton.config.DataBatonServerConfig;
+import io.databaton.config.DataBatonRemoteServerConfig;
 import io.databaton.config.PacConfig;
 import io.databaton.crypt.CryptProcessor;
 import io.databaton.net.databaton.codec.DataBatonDecryptDecoder;
@@ -106,7 +106,7 @@ public class Socks5CommandRequestHandler extends SimpleChannelInboundHandler<Def
                     }
                 });
 
-        DataBatonServerConfig remoteServer = dataBatonConfig.getRemoteServer();
+        DataBatonRemoteServerConfig remoteServer = dataBatonConfig.getRemoteServer();
 
         bootstrap.connect(remoteServer.getHost(), remoteServer.getPort()).sync().addListener((ChannelFutureListener) future -> {
             if(future.isSuccess()){

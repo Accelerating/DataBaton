@@ -1,7 +1,7 @@
 package io.databaton.net.databaton.handler;
 
 import io.databaton.config.DataBatonConfig;
-import io.databaton.config.DataBatonServerConfig;
+import io.databaton.config.DataBatonRemoteServerConfig;
 import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
 import io.databaton.net.databaton.model.DataBatonLoginMessageProto;
 import io.netty.channel.ChannelHandlerContext;
@@ -19,7 +19,7 @@ public class DataBatonAuthenticationHandler extends SimpleChannelInboundHandler<
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, DataBatonLoginMessageProto.DataBatonLoginMessage msg) throws Exception {
-        DataBatonServerConfig remoteServer = dataBatonConfig.getRemoteServer();
+        DataBatonRemoteServerConfig remoteServer = dataBatonConfig.getRemoteServer();
         String username = remoteServer.getUsername();
         String password = remoteServer.getPassword();
 

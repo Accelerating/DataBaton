@@ -3,7 +3,7 @@ package io.databaton.config;
 import lombok.Data;
 
 @Data
-public class DataBatonServerConfig {
+public class DataBatonRemoteServerConfig {
 
     private String host;
 

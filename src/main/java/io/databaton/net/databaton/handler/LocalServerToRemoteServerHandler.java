@@ -2,7 +2,7 @@ package io.databaton.net.databaton.handler;
 
 import com.google.protobuf.ByteString;
 import io.databaton.config.DataBatonConfig;
-import io.databaton.config.DataBatonServerConfig;
+import io.databaton.config.DataBatonRemoteServerConfig;
 import io.databaton.enums.OpType;
 import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
 import io.databaton.net.databaton.model.DataBatonLoginMessageProto;
@@ -42,7 +42,7 @@ public class LocalServerToRemoteServerHandler extends ChannelInboundHandlerAdapt
                 byte[] data = new byte[buf.readableBytes()];
                 buf.readBytes(data);
                 if(status == STATE_INIT){
-                    DataBatonServerConfig remoteServer = dataBatonConfig.getRemoteServer();
+                    DataBatonRemoteServerConfig remoteServer = dataBatonConfig.getRemoteServer();
                     DataBatonLoginMessageProto.DataBatonLoginMessage.Builder builder = DataBatonLoginMessageProto.DataBatonLoginMessage.newBuilder();
                     builder.setUsername(remoteServer.getUsername());
                     builder.setPassword(remoteServer.getPassword());

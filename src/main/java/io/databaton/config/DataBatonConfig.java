@@ -13,7 +13,7 @@ public class DataBatonConfig {
     private String mode;
     private String pac;
     private DataBatonCryptConfig crypt;
-    private DataBatonServerConfig localServer;
-    private DataBatonServerConfig remoteServer;
+    private DataBatonLocalServerConfig localServer;
+    private DataBatonRemoteServerConfig remoteServer;
 
 }
