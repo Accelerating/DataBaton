@@ -24,9 +24,10 @@ public class DataBatonLocalServer {
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new DataBatonLocalServerHandlerInitializer(clientGroup, dataBatonConfig, cryptProcessor));
         int localServerPort = dataBatonConfig.getLocalServer().getPort();
+        String proxyType = dataBatonConfig.getLocalServer().getProxyType();
         serverBootstrap.bind(localServerPort).addListener((future -> {
             if (future.isSuccess()) {
-                log.info("local server start successfully, port: {}", localServerPort);
+                log.info("local server start successfully, proxyType:{}, port: {}", proxyType, localServerPort);
             }
         })).sync();
 

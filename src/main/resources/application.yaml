@@ -2,7 +2,7 @@ databaton:
   mode: local
   pac:
   local-server:
-    type: socks5
+    proxy-type: socks5
     port: 9988
   remote-server:
     host: 127.0.0.1
@@ -18,4 +18,4 @@ databaton:
 logging:
   level:
     io:
-      databaton: debug
+      databaton: info

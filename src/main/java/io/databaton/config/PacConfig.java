@@ -38,18 +38,17 @@ public class PacConfig {
     }
 
     public static boolean isProxyDomain(String domain){
-        return false;
-//        if(INSTANCE.proxy != null){
-//            for (Pattern pattern : INSTANCE.proxy) {
-//
-//                Matcher matcher = pattern.matcher(domain);
-//                if(matcher.matches()){
-//                    return true;
-//                }
-//            }
-//            return false;
-//        }
-//        return true;
+        if(INSTANCE.proxy != null){
+            for (Pattern pattern : INSTANCE.proxy) {
+
+                Matcher matcher = pattern.matcher(domain);
+                if(matcher.matches()){
+                    return true;
+                }
+            }
+            return false;
+        }
+        return true;
     }
 
     public void refresh(){
