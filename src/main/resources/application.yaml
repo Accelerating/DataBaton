@@ -2,13 +2,12 @@ databaton:
   mode: local
   pac:
   local-server:
-    proxy-type: socks5
+    proxy-type: http
     port: 9988
   remote-server:
     host: 127.0.0.1
     port: 9987
-    username: admin
-    password: 123456
+    token: databaton
   crypt:
     code: 1
     algorithm: AES/ECB/PKCS5Padding

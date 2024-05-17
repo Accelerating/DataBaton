@@ -7,10 +7,9 @@ option java_outer_classname="DataBatonLoginMessageProto";
 
 message DataBatonLoginMessage {
 
-  string username = 1;
-  string password = 2;
-  string dstHost = 3;
-  int32 dstPort = 4;
-  bytes data = 5;
+  string token = 1;
+  string dstHost = 2;
+  int32 dstPort = 3;
+  bytes data = 4;
 
 }

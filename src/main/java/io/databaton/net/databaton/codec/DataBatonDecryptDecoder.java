@@ -52,7 +52,6 @@ public class DataBatonDecryptDecoder extends ByteToMessageDecoder {
         byte[] ops = new byte[]{op4, op3, op2, op1};
         byte[] payload = new byte[payloadLength];
 
-//        log.debug("read transitMessage --> opbs:{}, payloadLength:{}", Arrays.toString(ops), payloadLength);
 
         in.readBytes(payload);
 

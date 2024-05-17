@@ -20,10 +20,9 @@ public class DataBatonAuthenticationHandler extends SimpleChannelInboundHandler<
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, DataBatonLoginMessageProto.DataBatonLoginMessage msg) throws Exception {
         DataBatonRemoteServerConfig remoteServer = dataBatonConfig.getRemoteServer();
-        String username = remoteServer.getUsername();
-        String password = remoteServer.getPassword();
+        String token = remoteServer.getToken();
 
-        if(username.equals(msg.getUsername()) && password.equals(msg.getPassword())){
+        if(token.equals(msg.getToken())){
             log.debug("authentication success");
             DataBatonDispatchMessageProto.DataBatonDispatchMessage.Builder builder = DataBatonDispatchMessageProto.DataBatonDispatchMessage.newBuilder();
             builder.setDstHost(msg.getDstHost());

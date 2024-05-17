@@ -8,70 +8,58 @@ public final class DataBatonLoginMessageProto {
   private DataBatonLoginMessageProto() {}
   static {
     com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
-      com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
-      /* major= */ 4,
-      /* minor= */ 26,
-      /* patch= */ 1,
-      /* suffix= */ "",
-      DataBatonLoginMessageProto.class.getName());
+            com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+            /* major= */ 4,
+            /* minor= */ 26,
+            /* patch= */ 1,
+            /* suffix= */ "",
+            DataBatonLoginMessageProto.class.getName());
   }
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
+          com.google.protobuf.ExtensionRegistryLite registry) {
   }
 
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
+          com.google.protobuf.ExtensionRegistry registry) {
     registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
+            (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface DataBatonLoginMessageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:io.databaton.net.databaton.model.DataBatonLoginMessage)
-      com.google.protobuf.MessageOrBuilder {
+          // @@protoc_insertion_point(interface_extends:io.databaton.net.databaton.model.DataBatonLoginMessage)
+          com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string username = 1;</code>
-     * @return The username.
+     * <code>string token = 1;</code>
+     * @return The token.
      */
-    java.lang.String getUsername();
+    java.lang.String getToken();
     /**
-     * <code>string username = 1;</code>
-     * @return The bytes for username.
+     * <code>string token = 1;</code>
+     * @return The bytes for token.
      */
     com.google.protobuf.ByteString
-        getUsernameBytes();
+    getTokenBytes();
 
     /**
-     * <code>string password = 2;</code>
-     * @return The password.
-     */
-    java.lang.String getPassword();
-    /**
-     * <code>string password = 2;</code>
-     * @return The bytes for password.
-     */
-    com.google.protobuf.ByteString
-        getPasswordBytes();
-
-    /**
-     * <code>string dstHost = 3;</code>
+     * <code>string dstHost = 2;</code>
      * @return The dstHost.
      */
     java.lang.String getDstHost();
     /**
-     * <code>string dstHost = 3;</code>
+     * <code>string dstHost = 2;</code>
      * @return The bytes for dstHost.
      */
     com.google.protobuf.ByteString
-        getDstHostBytes();
+    getDstHostBytes();
 
     /**
-     * <code>int32 dstPort = 4;</code>
+     * <code>int32 dstPort = 3;</code>
      * @return The dstPort.
      */
     int getDstPort();
 
     /**
-     * <code>bytes data = 5;</code>
+     * <code>bytes data = 4;</code>
      * @return The data.
      */
     com.google.protobuf.ByteString getData();
@@ -80,126 +68,86 @@ public final class DataBatonLoginMessageProto {
    * Protobuf type {@code io.databaton.net.databaton.model.DataBatonLoginMessage}
    */
   public static final class DataBatonLoginMessage extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:io.databaton.net.databaton.model.DataBatonLoginMessage)
-      DataBatonLoginMessageOrBuilder {
-  private static final long serialVersionUID = 0L;
+          com.google.protobuf.GeneratedMessage implements
+          // @@protoc_insertion_point(message_implements:io.databaton.net.databaton.model.DataBatonLoginMessage)
+          DataBatonLoginMessageOrBuilder {
+    private static final long serialVersionUID = 0L;
     static {
       com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
-        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
-        /* major= */ 4,
-        /* minor= */ 26,
-        /* patch= */ 1,
-        /* suffix= */ "",
-        DataBatonLoginMessage.class.getName());
+              com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+              /* major= */ 4,
+              /* minor= */ 26,
+              /* patch= */ 1,
+              /* suffix= */ "",
+              DataBatonLoginMessage.class.getName());
     }
     // Use DataBatonLoginMessage.newBuilder() to construct.
     private DataBatonLoginMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
     private DataBatonLoginMessage() {
-      username_ = "";
-      password_ = "";
+      token_ = "";
       dstHost_ = "";
       data_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
+    getDescriptor() {
       return io.databaton.net.databaton.model.DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
+    internalGetFieldAccessorTable() {
       return io.databaton.net.databaton.model.DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.class, io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.Builder.class);
+              .ensureFieldAccessorsInitialized(
+                      io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.class, io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.Builder.class);
     }
 
-    public static final int USERNAME_FIELD_NUMBER = 1;
+    public static final int TOKEN_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object username_ = "";
+    private volatile java.lang.Object token_ = "";
     /**
-     * <code>string username = 1;</code>
-     * @return The username.
+     * <code>string token = 1;</code>
+     * @return The token.
      */
     @java.lang.Override
-    public java.lang.String getUsername() {
-      java.lang.Object ref = username_;
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        username_ = s;
+        token_ = s;
         return s;
       }
     }
     /**
-     * <code>string username = 1;</code>
-     * @return The bytes for username.
+     * <code>string token = 1;</code>
+     * @return The bytes for token.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getUsernameBytes() {
-      java.lang.Object ref = username_;
+    getTokenBytes() {
+      java.lang.Object ref = token_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        username_ = b;
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
+        token_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int PASSWORD_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object password_ = "";
-    /**
-     * <code>string password = 2;</code>
-     * @return The password.
-     */
-    @java.lang.Override
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        password_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string password = 2;</code>
-     * @return The bytes for password.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getPasswordBytes() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        password_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int DSTHOST_FIELD_NUMBER = 3;
+    public static final int DSTHOST_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
     private volatile java.lang.Object dstHost_ = "";
     /**
-     * <code>string dstHost = 3;</code>
+     * <code>string dstHost = 2;</code>
      * @return The dstHost.
      */
     @java.lang.Override
@@ -208,25 +156,25 @@ public final class DataBatonLoginMessageProto {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
+        com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         dstHost_ = s;
         return s;
       }
     }
     /**
-     * <code>string dstHost = 3;</code>
+     * <code>string dstHost = 2;</code>
      * @return The bytes for dstHost.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getDstHostBytes() {
+    getDstHostBytes() {
       java.lang.Object ref = dstHost_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
         dstHost_ = b;
         return b;
       } else {
@@ -234,10 +182,10 @@ public final class DataBatonLoginMessageProto {
       }
     }
 
-    public static final int DSTPORT_FIELD_NUMBER = 4;
+    public static final int DSTPORT_FIELD_NUMBER = 3;
     private int dstPort_ = 0;
     /**
-     * <code>int32 dstPort = 4;</code>
+     * <code>int32 dstPort = 3;</code>
      * @return The dstPort.
      */
     @java.lang.Override
@@ -245,10 +193,10 @@ public final class DataBatonLoginMessageProto {
       return dstPort_;
     }
 
-    public static final int DATA_FIELD_NUMBER = 5;
+    public static final int DATA_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>bytes data = 5;</code>
+     * <code>bytes data = 4;</code>
      * @return The data.
      */
     @java.lang.Override
@@ -269,21 +217,18 @@ public final class DataBatonLoginMessageProto {
 
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(username_)) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 1, username_);
-      }
-      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(password_)) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 2, password_);
+            throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(token_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, token_);
       }
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(dstHost_)) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 3, dstHost_);
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, dstHost_);
       }
       if (dstPort_ != 0) {
-        output.writeInt32(4, dstPort_);
+        output.writeInt32(3, dstPort_);
       }
       if (!data_.isEmpty()) {
-        output.writeBytes(5, data_);
+        output.writeBytes(4, data_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -294,22 +239,19 @@ public final class DataBatonLoginMessageProto {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(username_)) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, username_);
-      }
-      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(password_)) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, password_);
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(token_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, token_);
       }
       if (!com.google.protobuf.GeneratedMessage.isStringEmpty(dstHost_)) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, dstHost_);
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, dstHost_);
       }
       if (dstPort_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, dstPort_);
+                .computeInt32Size(3, dstPort_);
       }
       if (!data_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, data_);
+                .computeBytesSize(4, data_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -319,23 +261,21 @@ public final class DataBatonLoginMessageProto {
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-       return true;
+        return true;
       }
       if (!(obj instanceof io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage)) {
         return super.equals(obj);
       }
       io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage other = (io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage) obj;
 
-      if (!getUsername()
-          .equals(other.getUsername())) return false;
-      if (!getPassword()
-          .equals(other.getPassword())) return false;
+      if (!getToken()
+              .equals(other.getToken())) return false;
       if (!getDstHost()
-          .equals(other.getDstHost())) return false;
+              .equals(other.getDstHost())) return false;
       if (getDstPort()
-          != other.getDstPort()) return false;
+              != other.getDstPort()) return false;
       if (!getData()
-          .equals(other.getData())) return false;
+              .equals(other.getData())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -347,10 +287,8 @@ public final class DataBatonLoginMessageProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getUsername().hashCode();
-      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
-      hash = (53 * hash) + getPassword().hashCode();
+      hash = (37 * hash) + TOKEN_FIELD_NUMBER;
+      hash = (53 * hash) + getToken().hashCode();
       hash = (37 * hash) + DSTHOST_FIELD_NUMBER;
       hash = (53 * hash) + getDstHost().hashCode();
       hash = (37 * hash) + DSTPORT_FIELD_NUMBER;
@@ -363,75 +301,75 @@ public final class DataBatonLoginMessageProto {
     }
 
     public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
     public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
     public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input);
+              .parseWithIOException(PARSER, input);
     }
     public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input, extensionRegistry);
+              .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
     public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
-          .parseDelimitedWithIOException(PARSER, input);
+              .parseDelimitedWithIOException(PARSER, input);
     }
 
     public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input);
+              .parseWithIOException(PARSER, input);
     }
     public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
-          .parseWithIOException(PARSER, input, extensionRegistry);
+              .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
     @java.lang.Override
@@ -445,12 +383,12 @@ public final class DataBatonLoginMessageProto {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+              ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -458,20 +396,20 @@ public final class DataBatonLoginMessageProto {
      * Protobuf type {@code io.databaton.net.databaton.model.DataBatonLoginMessage}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:io.databaton.net.databaton.model.DataBatonLoginMessage)
-        io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessageOrBuilder {
+            com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:io.databaton.net.databaton.model.DataBatonLoginMessage)
+            io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
+      getDescriptor() {
         return io.databaton.net.databaton.model.DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
+      internalGetFieldAccessorTable() {
         return io.databaton.net.databaton.model.DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.class, io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.Builder.class);
+                .ensureFieldAccessorsInitialized(
+                        io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.class, io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.Builder.class);
       }
 
       // Construct using io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.newBuilder()
@@ -480,7 +418,7 @@ public final class DataBatonLoginMessageProto {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+              com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
 
       }
@@ -488,8 +426,7 @@ public final class DataBatonLoginMessageProto {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        username_ = "";
-        password_ = "";
+        token_ = "";
         dstHost_ = "";
         dstPort_ = 0;
         data_ = com.google.protobuf.ByteString.EMPTY;
@@ -498,7 +435,7 @@ public final class DataBatonLoginMessageProto {
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
+      getDescriptorForType() {
         return io.databaton.net.databaton.model.DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_descriptor;
       }
 
@@ -527,18 +464,15 @@ public final class DataBatonLoginMessageProto {
       private void buildPartial0(io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.username_ = username_;
+          result.token_ = token_;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.password_ = password_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
           result.dstHost_ = dstHost_;
         }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
+        if (((from_bitField0_ & 0x00000004) != 0)) {
           result.dstPort_ = dstPort_;
         }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
+        if (((from_bitField0_ & 0x00000008) != 0)) {
           result.data_ = data_;
         }
       }
@@ -555,19 +489,14 @@ public final class DataBatonLoginMessageProto {
 
       public Builder mergeFrom(io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage other) {
         if (other == io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.getDefaultInstance()) return this;
-        if (!other.getUsername().isEmpty()) {
-          username_ = other.username_;
+        if (!other.getToken().isEmpty()) {
+          token_ = other.token_;
           bitField0_ |= 0x00000001;
-          onChanged();
-        }
-        if (!other.getPassword().isEmpty()) {
-          password_ = other.password_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getDstHost().isEmpty()) {
           dstHost_ = other.dstHost_;
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getDstPort() != 0) {
@@ -588,9 +517,9 @@ public final class DataBatonLoginMessageProto {
 
       @java.lang.Override
       public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
         if (extensionRegistry == null) {
           throw new java.lang.NullPointerException();
         }
@@ -603,30 +532,25 @@ public final class DataBatonLoginMessageProto {
                 done = true;
                 break;
               case 10: {
-                username_ = input.readStringRequireUtf8();
+                token_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 10
               case 18: {
-                password_ = input.readStringRequireUtf8();
+                dstHost_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000002;
                 break;
               } // case 18
-              case 26: {
-                dstHost_ = input.readStringRequireUtf8();
+              case 24: {
+                dstPort_ = input.readInt32();
                 bitField0_ |= 0x00000004;
                 break;
-              } // case 26
-              case 32: {
-                dstPort_ = input.readInt32();
+              } // case 24
+              case 34: {
+                data_ = input.readBytes();
                 bitField0_ |= 0x00000008;
                 break;
-              } // case 32
-              case 42: {
-                data_ = input.readBytes();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 42
+              } // case 34
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -644,160 +568,88 @@ public final class DataBatonLoginMessageProto {
       }
       private int bitField0_;
 
-      private java.lang.Object username_ = "";
+      private java.lang.Object token_ = "";
       /**
-       * <code>string username = 1;</code>
-       * @return The username.
+       * <code>string token = 1;</code>
+       * @return The token.
        */
-      public java.lang.String getUsername() {
-        java.lang.Object ref = username_;
+      public java.lang.String getToken() {
+        java.lang.Object ref = token_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+                  (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          username_ = s;
+          token_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string username = 1;</code>
-       * @return The bytes for username.
+       * <code>string token = 1;</code>
+       * @return The bytes for token.
        */
       public com.google.protobuf.ByteString
-          getUsernameBytes() {
-        java.lang.Object ref = username_;
+      getTokenBytes() {
+        java.lang.Object ref = token_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          username_ = b;
+          com.google.protobuf.ByteString b =
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                          (java.lang.String) ref);
+          token_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string username = 1;</code>
-       * @param value The username to set.
+       * <code>string token = 1;</code>
+       * @param value The token to set.
        * @return This builder for chaining.
        */
-      public Builder setUsername(
-          java.lang.String value) {
+      public Builder setToken(
+              java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
-        username_ = value;
+        token_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>string username = 1;</code>
+       * <code>string token = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearUsername() {
-        username_ = getDefaultInstance().getUsername();
+      public Builder clearToken() {
+        token_ = getDefaultInstance().getToken();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
-       * <code>string username = 1;</code>
-       * @param value The bytes for username to set.
+       * <code>string token = 1;</code>
+       * @param value The bytes for token to set.
        * @return This builder for chaining.
        */
-      public Builder setUsernameBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder setTokenBytes(
+              com.google.protobuf.ByteString value) {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
-        username_ = value;
+        token_ = value;
         bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object password_ = "";
-      /**
-       * <code>string password = 2;</code>
-       * @return The password.
-       */
-      public java.lang.String getPassword() {
-        java.lang.Object ref = password_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          password_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @return The bytes for password.
-       */
-      public com.google.protobuf.ByteString
-          getPasswordBytes() {
-        java.lang.Object ref = password_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          password_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @param value The password to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPassword(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        password_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPassword() {
-        password_ = getDefaultInstance().getPassword();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string password = 2;</code>
-       * @param value The bytes for password to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPasswordBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        password_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
 
       private java.lang.Object dstHost_ = "";
       /**
-       * <code>string dstHost = 3;</code>
+       * <code>string dstHost = 2;</code>
        * @return The dstHost.
        */
       public java.lang.String getDstHost() {
         java.lang.Object ref = dstHost_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
+                  (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           dstHost_ = s;
           return s;
@@ -806,16 +658,16 @@ public final class DataBatonLoginMessageProto {
         }
       }
       /**
-       * <code>string dstHost = 3;</code>
+       * <code>string dstHost = 2;</code>
        * @return The bytes for dstHost.
        */
       public com.google.protobuf.ByteString
-          getDstHostBytes() {
+      getDstHostBytes() {
         java.lang.Object ref = dstHost_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+          com.google.protobuf.ByteString b =
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                          (java.lang.String) ref);
           dstHost_ = b;
           return b;
         } else {
@@ -823,46 +675,46 @@ public final class DataBatonLoginMessageProto {
         }
       }
       /**
-       * <code>string dstHost = 3;</code>
+       * <code>string dstHost = 2;</code>
        * @param value The dstHost to set.
        * @return This builder for chaining.
        */
       public Builder setDstHost(
-          java.lang.String value) {
+              java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         dstHost_ = value;
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
-       * <code>string dstHost = 3;</code>
+       * <code>string dstHost = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearDstHost() {
         dstHost_ = getDefaultInstance().getDstHost();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
-       * <code>string dstHost = 3;</code>
+       * <code>string dstHost = 2;</code>
        * @param value The bytes for dstHost to set.
        * @return This builder for chaining.
        */
       public Builder setDstHostBytes(
-          com.google.protobuf.ByteString value) {
+              com.google.protobuf.ByteString value) {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         dstHost_ = value;
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
 
       private int dstPort_ ;
       /**
-       * <code>int32 dstPort = 4;</code>
+       * <code>int32 dstPort = 3;</code>
        * @return The dstPort.
        */
       @java.lang.Override
@@ -870,23 +722,23 @@ public final class DataBatonLoginMessageProto {
         return dstPort_;
       }
       /**
-       * <code>int32 dstPort = 4;</code>
+       * <code>int32 dstPort = 3;</code>
        * @param value The dstPort to set.
        * @return This builder for chaining.
        */
       public Builder setDstPort(int value) {
 
         dstPort_ = value;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 dstPort = 4;</code>
+       * <code>int32 dstPort = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearDstPort() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         dstPort_ = 0;
         onChanged();
         return this;
@@ -894,7 +746,7 @@ public final class DataBatonLoginMessageProto {
 
       private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes data = 5;</code>
+       * <code>bytes data = 4;</code>
        * @return The data.
        */
       @java.lang.Override
@@ -902,23 +754,23 @@ public final class DataBatonLoginMessageProto {
         return data_;
       }
       /**
-       * <code>bytes data = 5;</code>
+       * <code>bytes data = 4;</code>
        * @param value The data to set.
        * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
         if (value == null) { throw new NullPointerException(); }
         data_ = value;
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
-       * <code>bytes data = 5;</code>
+       * <code>bytes data = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000008);
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -938,12 +790,12 @@ public final class DataBatonLoginMessageProto {
     }
 
     private static final com.google.protobuf.Parser<DataBatonLoginMessage>
-        PARSER = new com.google.protobuf.AbstractParser<DataBatonLoginMessage>() {
+            PARSER = new com.google.protobuf.AbstractParser<DataBatonLoginMessage>() {
       @java.lang.Override
       public DataBatonLoginMessage parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
         Builder builder = newBuilder();
         try {
           builder.mergeFrom(input, extensionRegistry);
@@ -953,7 +805,7 @@ public final class DataBatonLoginMessageProto {
           throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
+                  .setUnfinishedMessage(builder.buildPartial());
         }
         return builder.buildPartial();
       }
@@ -976,37 +828,36 @@ public final class DataBatonLoginMessageProto {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_fieldAccessorTable;
+          internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
+  getDescriptor() {
     return descriptor;
   }
   private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
+          descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\033DataBatonLoginMessage.proto\022 io.databa" +
-      "ton.net.databaton.model\"k\n\025DataBatonLogi" +
-      "nMessage\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002" +
-      " \001(\t\022\017\n\007dstHost\030\003 \001(\t\022\017\n\007dstPort\030\004 \001(\005\022\014" +
-      "\n\004data\030\005 \001(\014B>\n io.databaton.net.databat" +
-      "on.modelB\032DataBatonLoginMessageProtob\006pr" +
-      "oto3"
+            "\n\033DataBatonLoginMessage.proto\022 io.databa" +
+                    "ton.net.databaton.model\"V\n\025DataBatonLogi" +
+                    "nMessage\022\r\n\005token\030\001 \001(\t\022\017\n\007dstHost\030\002 \001(\t" +
+                    "\022\017\n\007dstPort\030\003 \001(\005\022\014\n\004data\030\004 \001(\014B>\n io.da" +
+                    "tabaton.net.databaton.modelB\032DataBatonLo" +
+                    "ginMessageProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
+            .internalBuildGeneratedFileFrom(descriptorData,
+                    new com.google.protobuf.Descriptors.FileDescriptor[] {
+                    });
     internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_descriptor =
-      getDescriptor().getMessageTypes().get(0);
+            getDescriptor().getMessageTypes().get(0);
     internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_descriptor,
-        new java.lang.String[] { "Username", "Password", "DstHost", "DstPort", "Data", });
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+            internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_descriptor,
+            new java.lang.String[] { "Token", "DstHost", "DstPort", "Data", });
     descriptor.resolveAllFeaturesImmutable();
   }
 

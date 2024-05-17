@@ -44,8 +44,7 @@ public class LocalServerToRemoteServerHandler extends ChannelInboundHandlerAdapt
                 if(status == STATE_INIT){
                     DataBatonRemoteServerConfig remoteServer = dataBatonConfig.getRemoteServer();
                     DataBatonLoginMessageProto.DataBatonLoginMessage.Builder builder = DataBatonLoginMessageProto.DataBatonLoginMessage.newBuilder();
-                    builder.setUsername(remoteServer.getUsername());
-                    builder.setPassword(remoteServer.getPassword());
+                    builder.setToken(remoteServer.getToken());
                     builder.setDstHost(dstHost);
                     builder.setDstPort(dstPort);
                     builder.setData(ByteString.copyFrom(data));

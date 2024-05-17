@@ -33,7 +33,7 @@ public class DataBatonEncryptEncoder extends MessageToByteEncoder<DataBatonMessa
         out.writeByte(msg.getOp2());
         out.writeBytes(payload);
 
-        log.debug("write transitMessage --> {},", msg);
+        log.debug("write data baton message --> {},", msg);
 
     }
 
