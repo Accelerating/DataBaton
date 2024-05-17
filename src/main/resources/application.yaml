@@ -1,6 +1,7 @@
 databaton:
   # remote or local
   mode: local
+  # the pac config file path, the config file must be a yaml
   pac:
   local-server:
     # socks5 or http
