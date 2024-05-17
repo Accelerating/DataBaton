@@ -1,14 +1,19 @@
 databaton:
+  # remote or local
   mode: local
   pac:
   local-server:
-    proxy-type: http
+    # socks5 or http
+    proxy-type: socks5
     port: 9988
   remote-server:
+    # your remote server ip address
     host: 127.0.0.1
     port: 9987
+    # make sure the local server and remote server use the same value
     token: databaton
   crypt:
+    # see the enum class CryptType
     code: 1
     algorithm: AES/ECB/PKCS5Padding
     key: 1234567890123456
