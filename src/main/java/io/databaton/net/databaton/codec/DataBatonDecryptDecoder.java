@@ -39,11 +39,11 @@ public class DataBatonDecryptDecoder extends ByteToMessageDecoder {
         in.markReaderIndex();
 
 
-        byte op3 = in.readByte();
-        int payloadLength = in.readInt();
         byte op1 = in.readByte();
-        byte op4 = in.readByte();
         byte op2 = in.readByte();
+        byte op3 = in.readByte();
+        byte op4 = in.readByte();
+        int payloadLength = in.readInt();
 
         if(in.readableBytes() < payloadLength){
             in.resetReaderIndex();

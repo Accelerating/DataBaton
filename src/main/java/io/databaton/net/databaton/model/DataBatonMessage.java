@@ -9,38 +9,31 @@ public class DataBatonMessage {
 
     public static final int HEADER_LENGTH = 8;
 
-    /**
-     * operation part3
-     */
-    private byte op3;
-    public static final int OP3_IDX = 0;
-
-
-    /**
-     * payload size
-     */
-    private int payloadLength;
-    public static final int PAYLOAD_LENGTH_IDX = 1;
-
 
     /**
      * operation part1
      */
     private byte op1;
-    public static final int OP1_IDX = 5;
-
-    /**
-     * operation part4
-     */
-    private byte op4;
-    public static final int OP4_IDX = 6;
 
     /**
      * operation part2
      */
     private byte op2;
-    public static final int OP2_IDX = 7;
 
+    /**
+     * operation part3
+     */
+    private byte op3;
+
+    /**
+     * operation part4
+     */
+    private byte op4;
+
+    /**
+     * payload size
+     */
+    private int payloadLength;
 
 
     /**

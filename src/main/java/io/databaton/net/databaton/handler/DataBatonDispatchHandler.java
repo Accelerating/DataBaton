@@ -32,7 +32,7 @@ public class DataBatonDispatchHandler extends SimpleChannelInboundHandler<DataBa
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, DataBatonDispatchMessageProto.DataBatonDispatchMessage msg) throws Exception {
         log.debug("dispatch data to target server, host:{}, port:{}", msg.getDstHost(), msg.getDstPort());
-        Channel channel = getChannel(ctx, msg);
+        Channel channel = getToTargetServerChannel(ctx, msg);
         byte[] data = msg.getData().toByteArray();
         ByteBuf buf = ctx.alloc().buffer(data.length);
         buf.writeBytes(data);
@@ -43,8 +43,13 @@ public class DataBatonDispatchHandler extends SimpleChannelInboundHandler<DataBa
 
     }
 
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        closeToTargetServerChannel();
+        super.channelInactive(ctx);
+    }
 
-    private Channel getChannel(ChannelHandlerContext ctx, DataBatonDispatchMessageProto.DataBatonDispatchMessage msg) throws Exception{
+    private Channel getToTargetServerChannel(ChannelHandlerContext ctx, DataBatonDispatchMessageProto.DataBatonDispatchMessage msg) throws Exception{
         if(this.toTargetServerChannel == null || !this.toTargetServerChannel.isActive()){
             Bootstrap bootstrap = new Bootstrap();
             bootstrap.channel(NioSocketChannel.class)
@@ -59,6 +64,14 @@ public class DataBatonDispatchHandler extends SimpleChannelInboundHandler<DataBa
             this.toTargetServerChannel = future.channel();
         }
         return this.toTargetServerChannel;
+    }
+
+    private void closeToTargetServerChannel(){
+        try{
+            this.toTargetServerChannel.close();
+        }catch (Exception e){
+            log.error("close channel failed: {}", this.toTargetServerChannel);
+        }
     }
 
 }

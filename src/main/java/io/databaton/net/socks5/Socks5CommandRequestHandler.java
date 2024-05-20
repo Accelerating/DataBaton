@@ -7,7 +7,7 @@ import io.databaton.crypt.CryptProcessor;
 import io.databaton.net.databaton.codec.DataBatonDecryptDecoder;
 import io.databaton.net.databaton.codec.DataBatonEncryptEncoder;
 import io.databaton.net.databaton.handler.LocalServerToRemoteServerHandler;
-import io.databaton.net.databaton.handler.RemoteServerToLocalServerHandler;
+import io.databaton.net.dispatch.RemoteServerToLocalServerHandler;
 import io.databaton.net.dispatch.LocalClientToTargetServerHandler;
 import io.databaton.net.dispatch.TargetServerToLocalClientHandler;
 import io.netty.bootstrap.Bootstrap;

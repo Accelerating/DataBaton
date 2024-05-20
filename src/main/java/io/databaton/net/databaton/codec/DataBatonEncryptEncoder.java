@@ -26,11 +26,11 @@ public class DataBatonEncryptEncoder extends MessageToByteEncoder<DataBatonMessa
         byte[] payload = cryptProcessor.encrypt(msg.getPayload());
 
 
-        out.writeByte(msg.getOp3());
-        out.writeInt(payload.length);
         out.writeByte(msg.getOp1());
-        out.writeByte(msg.getOp4());
         out.writeByte(msg.getOp2());
+        out.writeByte(msg.getOp3());
+        out.writeByte(msg.getOp4());
+        out.writeInt(payload.length);
         out.writeBytes(payload);
 
         log.debug("write data baton message --> {},", msg);

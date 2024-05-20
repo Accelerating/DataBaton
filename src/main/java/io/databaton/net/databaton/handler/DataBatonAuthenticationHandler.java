@@ -31,7 +31,7 @@ public class DataBatonAuthenticationHandler extends SimpleChannelInboundHandler<
             ctx.pipeline().remove(this);
             ctx.fireChannelRead(builder.build());
         }else{
-            log.warn("authentication failed");
+            log.error("authentication failed");
             ctx.close();
         }
     }

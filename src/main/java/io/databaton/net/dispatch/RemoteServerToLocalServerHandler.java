@@ -1,4 +1,4 @@
-package io.databaton.net.databaton.handler;
+package io.databaton.net.dispatch;
 
 import io.databaton.config.DataBatonConfig;
 import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
