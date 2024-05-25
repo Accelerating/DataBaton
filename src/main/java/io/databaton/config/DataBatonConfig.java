@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 public class DataBatonConfig {
 
     private String mode;
+    private String protocol;
     private String pac;
     private DataBatonCryptConfig crypt;
     private DataBatonLocalServerConfig localServer;

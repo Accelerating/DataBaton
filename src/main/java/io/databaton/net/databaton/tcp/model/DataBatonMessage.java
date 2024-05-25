@@ -1,4 +1,4 @@
-package io.databaton.net.databaton.model;
+package io.databaton.net.databaton.tcp.model;
 
 import lombok.Data;
 

@@ -1,5 +1,6 @@
 package io.databaton.utils;
 
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
@@ -25,5 +26,9 @@ public class RandomUtils {
             return start;
         }
         return ThreadLocalRandom.current().nextInt(start, end + 1);
+    }
+
+    public static String getRandomStr(){
+        return UUID.randomUUID().toString().replace("-", "");
     }
 }

@@ -1,7 +1,7 @@
-package io.databaton.net.databaton.handler;
+package io.databaton.net.databaton.tcp.handler;
 
-import io.databaton.config.DataBatonConfig;
-import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
+import io.databaton.net.databaton.tcp.model.DataBatonDispatchMessageProto;
+import io.databaton.net.databaton.DataBatonContext;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.Channel;
@@ -9,7 +9,6 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
@@ -17,15 +16,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DataBatonDispatchHandler extends SimpleChannelInboundHandler<DataBatonDispatchMessageProto.DataBatonDispatchMessage> {
 
-    private final NioEventLoopGroup clientGroup;
-
-    private final DataBatonConfig dataBatonConfig;
+    private final DataBatonContext dataBatonContext;
 
     private Channel toTargetServerChannel;
 
-    public DataBatonDispatchHandler(NioEventLoopGroup clientGroup, DataBatonConfig dataBatonConfig){
-        this.clientGroup = clientGroup;
-        this.dataBatonConfig = dataBatonConfig;
+    public DataBatonDispatchHandler(DataBatonContext dataBatonContext){
+        this.dataBatonContext = dataBatonContext;
     }
 
 
@@ -53,11 +49,11 @@ public class DataBatonDispatchHandler extends SimpleChannelInboundHandler<DataBa
         if(this.toTargetServerChannel == null || !this.toTargetServerChannel.isActive()){
             Bootstrap bootstrap = new Bootstrap();
             bootstrap.channel(NioSocketChannel.class)
-                    .group(clientGroup)
+                    .group(dataBatonContext.getClientGroup())
                     .handler(new ChannelInitializer<SocketChannel>(){
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new TargetServerToRemoteServerHandler(ctx.channel(), dataBatonConfig));
+                            ch.pipeline().addLast(new TargetServerToRemoteServerHandler(ctx.channel(), dataBatonContext));
                         }
                     });
             ChannelFuture future = bootstrap.connect(msg.getDstHost(), msg.getDstPort()).sync();

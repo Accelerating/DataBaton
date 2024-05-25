@@ -1,9 +1,9 @@
-package io.databaton.net.databaton.handler;
+package io.databaton.net.databaton.tcp.handler;
 
-import io.databaton.config.DataBatonConfig;
 import io.databaton.config.DataBatonRemoteServerConfig;
-import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
-import io.databaton.net.databaton.model.DataBatonLoginMessageProto;
+import io.databaton.net.databaton.tcp.model.DataBatonDispatchMessageProto;
+import io.databaton.net.databaton.tcp.model.DataBatonLoginMessageProto;
+import io.databaton.net.databaton.DataBatonContext;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
@@ -11,15 +11,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DataBatonAuthenticationHandler extends SimpleChannelInboundHandler<DataBatonLoginMessageProto.DataBatonLoginMessage> {
 
-    private final DataBatonConfig dataBatonConfig;
+    private final DataBatonContext dataBatonContext;
 
-    public DataBatonAuthenticationHandler(DataBatonConfig dataBatonConfig) {
-        this.dataBatonConfig = dataBatonConfig;
+    public DataBatonAuthenticationHandler(DataBatonContext dataBatonContext) {
+        this.dataBatonContext = dataBatonContext;
     }
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, DataBatonLoginMessageProto.DataBatonLoginMessage msg) throws Exception {
-        DataBatonRemoteServerConfig remoteServer = dataBatonConfig.getRemoteServer();
+        DataBatonRemoteServerConfig remoteServer = dataBatonContext.getDataBatonConfig().getRemoteServer();
         String token = remoteServer.getToken();
 
         if(token.equals(msg.getToken())){

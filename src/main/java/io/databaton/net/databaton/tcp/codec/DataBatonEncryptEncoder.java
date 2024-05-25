@@ -1,8 +1,7 @@
-package io.databaton.net.databaton.codec;
+package io.databaton.net.databaton.tcp.codec;
 
-import io.databaton.config.DataBatonConfig;
-import io.databaton.crypt.CryptProcessor;
-import io.databaton.net.databaton.model.DataBatonMessage;
+import io.databaton.net.databaton.tcp.model.DataBatonMessage;
+import io.databaton.net.databaton.DataBatonContext;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
@@ -11,19 +10,17 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DataBatonEncryptEncoder extends MessageToByteEncoder<DataBatonMessage>{
 
-    private final CryptProcessor cryptProcessor;
-    private final DataBatonConfig dataBatonConfig;
+    private DataBatonContext dataBatonContext;
 
-    public DataBatonEncryptEncoder(CryptProcessor cryptProcessor, DataBatonConfig dataBatonConfig){
-        this.cryptProcessor = cryptProcessor;
-        this.dataBatonConfig = dataBatonConfig;
+    public DataBatonEncryptEncoder(DataBatonContext dataBatonContext){
+        this.dataBatonContext = dataBatonContext;
     }
 
 
     @Override
     protected void encode(ChannelHandlerContext ctx, DataBatonMessage msg, ByteBuf out) throws Exception {
 
-        byte[] payload = cryptProcessor.encrypt(msg.getPayload());
+        byte[] payload = dataBatonContext.getCryptProcessor().encrypt(msg.getPayload());
 
 
         out.writeByte(msg.getOp1());

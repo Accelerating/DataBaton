@@ -2,7 +2,7 @@
 // source: DataBatonDispatchMessage.proto
 // Protobuf Java Version: 4.26.1
 
-package io.databaton.net.databaton.model;
+package io.databaton.net.databaton.tcp.model;
 
 public final class DataBatonDispatchMessageProto {
   private DataBatonDispatchMessageProto() {}
@@ -80,15 +80,15 @@ public final class DataBatonDispatchMessageProto {
 
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.databaton.net.databaton.model.DataBatonDispatchMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonDispatchMessage_descriptor;
+      return DataBatonDispatchMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonDispatchMessage_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.databaton.net.databaton.model.DataBatonDispatchMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonDispatchMessage_fieldAccessorTable
+      return DataBatonDispatchMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonDispatchMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage.class, io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage.Builder.class);
+              DataBatonDispatchMessageProto.DataBatonDispatchMessage.class, DataBatonDispatchMessageProto.DataBatonDispatchMessage.Builder.class);
     }
 
     public static final int DSTHOST_FIELD_NUMBER = 1;
@@ -205,10 +205,10 @@ public final class DataBatonDispatchMessageProto {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage)) {
+      if (!(obj instanceof DataBatonDispatchMessageProto.DataBatonDispatchMessage)) {
         return super.equals(obj);
       }
-      io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage other = (io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage) obj;
+      DataBatonDispatchMessageProto.DataBatonDispatchMessage other = (DataBatonDispatchMessageProto.DataBatonDispatchMessage) obj;
 
       if (!getDstHost()
           .equals(other.getDstHost())) return false;
@@ -238,44 +238,44 @@ public final class DataBatonDispatchMessageProto {
       return hash;
     }
 
-    public static io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
+    public static DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
+    public static DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
+    public static DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
+    public static DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(byte[] data)
+    public static DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
+    public static DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(java.io.InputStream input)
+    public static DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
+    public static DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -283,26 +283,26 @@ public final class DataBatonDispatchMessageProto {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage parseDelimitedFrom(java.io.InputStream input)
+    public static DataBatonDispatchMessageProto.DataBatonDispatchMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage parseDelimitedFrom(
+    public static DataBatonDispatchMessageProto.DataBatonDispatchMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
+    public static DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
           .parseWithIOException(PARSER, input);
     }
-    public static io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
+    public static DataBatonDispatchMessageProto.DataBatonDispatchMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -315,7 +315,7 @@ public final class DataBatonDispatchMessageProto {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage prototype) {
+    public static Builder newBuilder(DataBatonDispatchMessageProto.DataBatonDispatchMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -336,18 +336,18 @@ public final class DataBatonDispatchMessageProto {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:io.databaton.net.databaton.model.DataBatonDispatchMessage)
-        io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessageOrBuilder {
+        DataBatonDispatchMessageProto.DataBatonDispatchMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.databaton.net.databaton.model.DataBatonDispatchMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonDispatchMessage_descriptor;
+        return DataBatonDispatchMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonDispatchMessage_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.databaton.net.databaton.model.DataBatonDispatchMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonDispatchMessage_fieldAccessorTable
+        return DataBatonDispatchMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonDispatchMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage.class, io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage.Builder.class);
+                DataBatonDispatchMessageProto.DataBatonDispatchMessage.class, DataBatonDispatchMessageProto.DataBatonDispatchMessage.Builder.class);
       }
 
       // Construct using io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage.newBuilder()
@@ -373,17 +373,17 @@ public final class DataBatonDispatchMessageProto {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.databaton.net.databaton.model.DataBatonDispatchMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonDispatchMessage_descriptor;
+        return DataBatonDispatchMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonDispatchMessage_descriptor;
       }
 
       @java.lang.Override
-      public io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage getDefaultInstanceForType() {
-        return io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage.getDefaultInstance();
+      public DataBatonDispatchMessageProto.DataBatonDispatchMessage getDefaultInstanceForType() {
+        return DataBatonDispatchMessageProto.DataBatonDispatchMessage.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage build() {
-        io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage result = buildPartial();
+      public DataBatonDispatchMessageProto.DataBatonDispatchMessage build() {
+        DataBatonDispatchMessageProto.DataBatonDispatchMessage result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -391,14 +391,14 @@ public final class DataBatonDispatchMessageProto {
       }
 
       @java.lang.Override
-      public io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage buildPartial() {
-        io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage result = new io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage(this);
+      public DataBatonDispatchMessageProto.DataBatonDispatchMessage buildPartial() {
+        DataBatonDispatchMessageProto.DataBatonDispatchMessage result = new DataBatonDispatchMessageProto.DataBatonDispatchMessage(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage result) {
+      private void buildPartial0(DataBatonDispatchMessageProto.DataBatonDispatchMessage result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.dstHost_ = dstHost_;
@@ -413,16 +413,16 @@ public final class DataBatonDispatchMessageProto {
 
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage) {
-          return mergeFrom((io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage)other);
+        if (other instanceof DataBatonDispatchMessageProto.DataBatonDispatchMessage) {
+          return mergeFrom((DataBatonDispatchMessageProto.DataBatonDispatchMessage)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage other) {
-        if (other == io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage.getDefaultInstance()) return this;
+      public Builder mergeFrom(DataBatonDispatchMessageProto.DataBatonDispatchMessage other) {
+        if (other == DataBatonDispatchMessageProto.DataBatonDispatchMessage.getDefaultInstance()) return this;
         if (!other.getDstHost().isEmpty()) {
           dstHost_ = other.dstHost_;
           bitField0_ |= 0x00000001;
@@ -632,12 +632,12 @@ public final class DataBatonDispatchMessageProto {
     }
 
     // @@protoc_insertion_point(class_scope:io.databaton.net.databaton.model.DataBatonDispatchMessage)
-    private static final io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage DEFAULT_INSTANCE;
+    private static final DataBatonDispatchMessageProto.DataBatonDispatchMessage DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage();
+      DEFAULT_INSTANCE = new DataBatonDispatchMessageProto.DataBatonDispatchMessage();
     }
 
-    public static io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage getDefaultInstance() {
+    public static DataBatonDispatchMessageProto.DataBatonDispatchMessage getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -673,7 +673,7 @@ public final class DataBatonDispatchMessageProto {
     }
 
     @java.lang.Override
-    public io.databaton.net.databaton.model.DataBatonDispatchMessageProto.DataBatonDispatchMessage getDefaultInstanceForType() {
+    public DataBatonDispatchMessageProto.DataBatonDispatchMessage getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 

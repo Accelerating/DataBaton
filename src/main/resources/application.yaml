@@ -1,7 +1,10 @@
 databaton:
   # remote or local
   mode: local
-  # the pac config file path, the config file must be a yaml
+  # tcp or udp
+  protocol: tcp
+  # the pac config file absolute path, the config must be a yaml file.
+  # if this value is empty, then all connections will use the proxy.
   pac:
   local-server:
     # socks5 or http

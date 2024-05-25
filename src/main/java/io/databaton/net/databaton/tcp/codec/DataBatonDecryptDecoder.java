@@ -1,11 +1,10 @@
-package io.databaton.net.databaton.codec;
+package io.databaton.net.databaton.tcp.codec;
 
-import io.databaton.config.DataBatonConfig;
-import io.databaton.crypt.CryptProcessor;
 import io.databaton.enums.OpType;
-import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
-import io.databaton.net.databaton.model.DataBatonLoginMessageProto;
-import io.databaton.net.databaton.model.DataBatonMessage;
+import io.databaton.net.databaton.tcp.model.DataBatonDispatchMessageProto;
+import io.databaton.net.databaton.tcp.model.DataBatonLoginMessageProto;
+import io.databaton.net.databaton.tcp.model.DataBatonMessage;
+import io.databaton.net.databaton.DataBatonContext;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
@@ -16,12 +15,10 @@ import java.util.List;
 @Slf4j
 public class DataBatonDecryptDecoder extends ByteToMessageDecoder {
 
-    private final CryptProcessor cryptProcessor;
-    private final DataBatonConfig dataBatonConfig;
+    private final DataBatonContext dataBatonContext;
 
-    public DataBatonDecryptDecoder(CryptProcessor cryptProcessor, DataBatonConfig dataBatonConfig){
-        this.cryptProcessor = cryptProcessor;
-        this.dataBatonConfig = dataBatonConfig;
+    public DataBatonDecryptDecoder(DataBatonContext dataBatonContext){
+        this.dataBatonContext = dataBatonContext;
     }
 
     @Override
@@ -56,7 +53,7 @@ public class DataBatonDecryptDecoder extends ByteToMessageDecoder {
         in.readBytes(payload);
 
         //decrypt
-        payload = cryptProcessor.decrypt(payload);
+        payload = dataBatonContext.getCryptProcessor().decrypt(payload);
 
         OpType opType = OpType.translateOperationType(ops);
         if(opType == OpType.LOGIN){

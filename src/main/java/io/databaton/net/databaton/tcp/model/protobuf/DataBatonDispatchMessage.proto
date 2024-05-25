@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package io.databaton.net.databaton.model;
 
-option java_package="io.databaton.net.databaton.model";
+option java_package="io.databaton.net.databaton.tcp.model";
 option java_outer_classname="DataBatonDispatchMessageProto";
 
 message DataBatonDispatchMessage {

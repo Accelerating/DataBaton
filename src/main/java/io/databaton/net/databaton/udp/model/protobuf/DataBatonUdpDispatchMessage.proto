@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package io.databaton.net.databaton.model;
+
+option java_package="io.databaton.net.databaton.udp.model";
+option java_outer_classname="DataBatonUdpDispatchMessageProto";
+
+message DataBatonUdpDispatchMessage {
+
+  string connId = 1;
+  int32 op = 2;
+  int32 packNum = 3;
+  repeated int32 originalPackNum = 4;
+  string dstHost = 5;
+  int32 dstPort = 6;
+  string token = 7;
+  bytes data = 8;
+
+}

@@ -1,7 +1,7 @@
 package io.databaton.net.dispatch;
 
-import io.databaton.config.DataBatonConfig;
-import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
+import io.databaton.net.databaton.tcp.model.DataBatonDispatchMessageProto;
+import io.databaton.net.databaton.DataBatonContext;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
@@ -12,11 +12,11 @@ import lombok.extern.slf4j.Slf4j;
 public class RemoteServerToLocalServerHandler extends SimpleChannelInboundHandler<DataBatonDispatchMessageProto.DataBatonDispatchMessage> {
 
     private final Channel toLocalClientChannel;
-    private final DataBatonConfig dataBatonConfig;
+    private final DataBatonContext dataBatonContext;
 
-    public RemoteServerToLocalServerHandler(Channel toLocalClientChannel, DataBatonConfig dataBatonConfig){
+    public RemoteServerToLocalServerHandler(Channel toLocalClientChannel, DataBatonContext dataBatonContext){
         this.toLocalClientChannel = toLocalClientChannel;
-        this.dataBatonConfig = dataBatonConfig;
+        this.dataBatonContext = dataBatonContext;
     }
 
     @Override

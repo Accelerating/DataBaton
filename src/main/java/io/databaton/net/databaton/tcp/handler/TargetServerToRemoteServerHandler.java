@@ -1,10 +1,10 @@
-package io.databaton.net.databaton.handler;
+package io.databaton.net.databaton.tcp.handler;
 
 import com.google.protobuf.ByteString;
-import io.databaton.config.DataBatonConfig;
 import io.databaton.enums.OpType;
-import io.databaton.net.databaton.model.DataBatonDispatchMessageProto;
-import io.databaton.net.databaton.model.DataBatonMessage;
+import io.databaton.net.databaton.tcp.model.DataBatonDispatchMessageProto;
+import io.databaton.net.databaton.tcp.model.DataBatonMessage;
+import io.databaton.net.databaton.DataBatonContext;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
@@ -17,11 +17,11 @@ public class TargetServerToRemoteServerHandler extends ChannelInboundHandlerAdap
 
     private final Channel toLocalServerChannel;
 
-    private final DataBatonConfig dataBatonConfig;
+    private final DataBatonContext dataBatonContext;
 
-    public TargetServerToRemoteServerHandler(Channel toLocalServerChannel, DataBatonConfig dataBatonConfig) {
+    public TargetServerToRemoteServerHandler(Channel toLocalServerChannel, DataBatonContext dataBatonContext) {
         this.toLocalServerChannel = toLocalServerChannel;
-        this.dataBatonConfig = dataBatonConfig;
+        this.dataBatonContext = dataBatonContext;
     }
 
     @Override

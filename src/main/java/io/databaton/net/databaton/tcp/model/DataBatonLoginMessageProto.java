@@ -2,7 +2,7 @@
 // source: DataBatonLoginMessage.proto
 // Protobuf Java Version: 4.26.1
 
-package io.databaton.net.databaton.model;
+package io.databaton.net.databaton.tcp.model;
 
 public final class DataBatonLoginMessageProto {
   private DataBatonLoginMessageProto() {}
@@ -93,15 +93,15 @@ public final class DataBatonLoginMessageProto {
 
     public static final com.google.protobuf.Descriptors.Descriptor
     getDescriptor() {
-      return io.databaton.net.databaton.model.DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_descriptor;
+      return DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
     internalGetFieldAccessorTable() {
-      return io.databaton.net.databaton.model.DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_fieldAccessorTable
+      return DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                      io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.class, io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.Builder.class);
+                      DataBatonLoginMessageProto.DataBatonLoginMessage.class, DataBatonLoginMessageProto.DataBatonLoginMessage.Builder.class);
     }
 
     public static final int TOKEN_FIELD_NUMBER = 1;
@@ -263,10 +263,10 @@ public final class DataBatonLoginMessageProto {
       if (obj == this) {
         return true;
       }
-      if (!(obj instanceof io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage)) {
+      if (!(obj instanceof DataBatonLoginMessageProto.DataBatonLoginMessage)) {
         return super.equals(obj);
       }
-      io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage other = (io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage) obj;
+      DataBatonLoginMessageProto.DataBatonLoginMessage other = (DataBatonLoginMessageProto.DataBatonLoginMessage) obj;
 
       if (!getToken()
               .equals(other.getToken())) return false;
@@ -300,44 +300,44 @@ public final class DataBatonLoginMessageProto {
       return hash;
     }
 
-    public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
+    public static DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
             java.nio.ByteBuffer data)
             throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
+    public static DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
             java.nio.ByteBuffer data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
+    public static DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
             com.google.protobuf.ByteString data)
             throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
+    public static DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
             com.google.protobuf.ByteString data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(byte[] data)
+    public static DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(byte[] data)
             throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
+    public static DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
             byte[] data,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(java.io.InputStream input)
+    public static DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(java.io.InputStream input)
             throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
               .parseWithIOException(PARSER, input);
     }
-    public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
+    public static DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -345,26 +345,26 @@ public final class DataBatonLoginMessageProto {
               .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseDelimitedFrom(java.io.InputStream input)
+    public static DataBatonLoginMessageProto.DataBatonLoginMessage parseDelimitedFrom(java.io.InputStream input)
             throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
               .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseDelimitedFrom(
+    public static DataBatonLoginMessageProto.DataBatonLoginMessage parseDelimitedFrom(
             java.io.InputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
               .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
+    public static DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
             com.google.protobuf.CodedInputStream input)
             throws java.io.IOException {
       return com.google.protobuf.GeneratedMessage
               .parseWithIOException(PARSER, input);
     }
-    public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
+    public static DataBatonLoginMessageProto.DataBatonLoginMessage parseFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
@@ -377,7 +377,7 @@ public final class DataBatonLoginMessageProto {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage prototype) {
+    public static Builder newBuilder(DataBatonLoginMessageProto.DataBatonLoginMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -398,18 +398,18 @@ public final class DataBatonLoginMessageProto {
     public static final class Builder extends
             com.google.protobuf.GeneratedMessage.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:io.databaton.net.databaton.model.DataBatonLoginMessage)
-            io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessageOrBuilder {
+            DataBatonLoginMessageProto.DataBatonLoginMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-        return io.databaton.net.databaton.model.DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_descriptor;
+        return DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-        return io.databaton.net.databaton.model.DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_fieldAccessorTable
+        return DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
-                        io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.class, io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.Builder.class);
+                        DataBatonLoginMessageProto.DataBatonLoginMessage.class, DataBatonLoginMessageProto.DataBatonLoginMessage.Builder.class);
       }
 
       // Construct using io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.newBuilder()
@@ -436,17 +436,17 @@ public final class DataBatonLoginMessageProto {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
       getDescriptorForType() {
-        return io.databaton.net.databaton.model.DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_descriptor;
+        return DataBatonLoginMessageProto.internal_static_io_databaton_net_databaton_model_DataBatonLoginMessage_descriptor;
       }
 
       @java.lang.Override
-      public io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage getDefaultInstanceForType() {
-        return io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.getDefaultInstance();
+      public DataBatonLoginMessageProto.DataBatonLoginMessage getDefaultInstanceForType() {
+        return DataBatonLoginMessageProto.DataBatonLoginMessage.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage build() {
-        io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage result = buildPartial();
+      public DataBatonLoginMessageProto.DataBatonLoginMessage build() {
+        DataBatonLoginMessageProto.DataBatonLoginMessage result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -454,14 +454,14 @@ public final class DataBatonLoginMessageProto {
       }
 
       @java.lang.Override
-      public io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage buildPartial() {
-        io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage result = new io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage(this);
+      public DataBatonLoginMessageProto.DataBatonLoginMessage buildPartial() {
+        DataBatonLoginMessageProto.DataBatonLoginMessage result = new DataBatonLoginMessageProto.DataBatonLoginMessage(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage result) {
+      private void buildPartial0(DataBatonLoginMessageProto.DataBatonLoginMessage result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.token_ = token_;
@@ -479,16 +479,16 @@ public final class DataBatonLoginMessageProto {
 
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage) {
-          return mergeFrom((io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage)other);
+        if (other instanceof DataBatonLoginMessageProto.DataBatonLoginMessage) {
+          return mergeFrom((DataBatonLoginMessageProto.DataBatonLoginMessage)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage other) {
-        if (other == io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage.getDefaultInstance()) return this;
+      public Builder mergeFrom(DataBatonLoginMessageProto.DataBatonLoginMessage other) {
+        if (other == DataBatonLoginMessageProto.DataBatonLoginMessage.getDefaultInstance()) return this;
         if (!other.getToken().isEmpty()) {
           token_ = other.token_;
           bitField0_ |= 0x00000001;
@@ -780,12 +780,12 @@ public final class DataBatonLoginMessageProto {
     }
 
     // @@protoc_insertion_point(class_scope:io.databaton.net.databaton.model.DataBatonLoginMessage)
-    private static final io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage DEFAULT_INSTANCE;
+    private static final DataBatonLoginMessageProto.DataBatonLoginMessage DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage();
+      DEFAULT_INSTANCE = new DataBatonLoginMessageProto.DataBatonLoginMessage();
     }
 
-    public static io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage getDefaultInstance() {
+    public static DataBatonLoginMessageProto.DataBatonLoginMessage getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -821,7 +821,7 @@ public final class DataBatonLoginMessageProto {
     }
 
     @java.lang.Override
-    public io.databaton.net.databaton.model.DataBatonLoginMessageProto.DataBatonLoginMessage getDefaultInstanceForType() {
+    public DataBatonLoginMessageProto.DataBatonLoginMessage getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
