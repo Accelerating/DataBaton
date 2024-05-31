@@ -2,6 +2,10 @@ package io.databaton.config;
 
 import lombok.Data;
 
+/**
+ * remote(proxy) server config
+ * @author zxx
+ */
 @Data
 public class DataBatonRemoteServerConfig {
 

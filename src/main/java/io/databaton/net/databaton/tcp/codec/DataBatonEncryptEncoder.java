@@ -7,6 +7,11 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 import lombok.extern.slf4j.Slf4j;
 
+
+/**
+ * encrypt encoder
+ * @author zxx
+ */
 @Slf4j
 public class DataBatonEncryptEncoder extends MessageToByteEncoder<DataBatonMessage>{
 

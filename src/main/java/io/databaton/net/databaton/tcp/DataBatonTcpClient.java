@@ -17,6 +17,11 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 
+
+/**
+ * A DataBaton client implemented using the TCP protocol
+ * @author zxx
+ */
 @Slf4j
 public class DataBatonTcpClient extends ChannelInboundHandlerAdapter implements DataBatonClient {
 

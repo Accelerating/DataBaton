@@ -8,6 +8,11 @@ import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 
+
+/**
+ * Local server, used to encrypt data and dispatch to remote(proxy) server
+ * @author zxx
+ */
 @Slf4j
 public class DataBatonLocalServer implements DataBatonServer {
 

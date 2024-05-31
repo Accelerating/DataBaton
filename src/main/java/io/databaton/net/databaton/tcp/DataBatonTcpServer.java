@@ -7,6 +7,10 @@ import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * A DataBaton server implemented using the TCP protocol
+ * @author zxx
+ */
 @Slf4j
 public class DataBatonTcpServer {
 

@@ -8,6 +8,11 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
 
+
+/**
+ * remote(proxy) server --->  local server
+ * @author zxx
+ */
 @Slf4j
 public class RemoteServerToLocalServerHandler extends SimpleChannelInboundHandler<DataBatonDispatchMessageProto.DataBatonDispatchMessage> {
 

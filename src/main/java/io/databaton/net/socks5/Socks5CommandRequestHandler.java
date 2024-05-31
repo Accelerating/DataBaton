@@ -24,6 +24,10 @@ import io.netty.handler.codec.socksx.v5.Socks5CommandType;
 import io.netty.util.ReferenceCountUtil;
 import lombok.extern.slf4j.Slf4j;
 
+
+/**
+ * @author zxx
+ */
 @Slf4j
 public class Socks5CommandRequestHandler extends SimpleChannelInboundHandler<DefaultSocks5CommandRequest> {
 

@@ -2,6 +2,10 @@ package io.databaton.config;
 
 import lombok.Data;
 
+/**
+ * encrypt and decrypt config
+ * @author zxx
+ */
 @Data
 public class DataBatonCryptConfig {
 

@@ -2,7 +2,9 @@ package io.databaton.enums;
 
 import io.databaton.utils.NumberUtils;
 import io.databaton.utils.RandomUtils;
-
+/**
+ * @author zxx
+ */
 public enum OpType {
 
     /**

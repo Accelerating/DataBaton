@@ -7,6 +7,10 @@ import io.databaton.net.databaton.tcp.DataBatonTcpServer;
 import io.databaton.net.databaton.udp.DataBatonUdpServer;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * remote(proxy) server, used to decrypt data from local server and dispatch data to target server
+ * @author zxx
+ */
 @Slf4j
 public class DataBatonRemoteServer  implements DataBatonServer {
 

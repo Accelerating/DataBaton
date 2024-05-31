@@ -8,6 +8,10 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Authentication handler, once authentication is successful, this handler will be removed from the pipeline
+ * @author zxx
+ */
 @Slf4j
 public class DataBatonAuthenticationHandler extends SimpleChannelInboundHandler<DataBatonLoginMessageProto.DataBatonLoginMessage> {
 

@@ -23,6 +23,10 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.http.*;
 import lombok.extern.slf4j.Slf4j;
 
+
+/**
+ * @author zxx
+ */
 @Slf4j
 public class HttpTunnelProxyInitHandler extends SimpleChannelInboundHandler<HttpRequest> {
 

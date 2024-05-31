@@ -4,7 +4,10 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-
+/**
+ * application config
+ * @author zxx
+ */
 @Data
 @Component
 @ConfigurationProperties(prefix = "databaton")

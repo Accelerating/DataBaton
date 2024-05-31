@@ -4,6 +4,11 @@ import lombok.Data;
 
 import java.util.Arrays;
 
+/**
+ * DataBaton message protocol
+ * |op1(1)|op2(1)|op3(1)|op4(1)|payloadLength(4)|payload|
+ * @author zxx
+ */
 @Data
 public class DataBatonMessage {
 

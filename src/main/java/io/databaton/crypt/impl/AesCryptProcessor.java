@@ -14,6 +14,10 @@ import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 
+/**
+ * aes crypt processor
+ * @author zxx
+ */
 @Slf4j
 @Component(CryptProcessor.BEAN_PREFIX + CryptType.AES)
 @ConditionalOnProperty(prefix = "databaton", name = "crypt.code", havingValue = CryptType.AES)

@@ -18,6 +18,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+
+/**
+ * a context for the DataBaton application
+ * @author zxx
+ */
 @Slf4j
 @Data
 @Component

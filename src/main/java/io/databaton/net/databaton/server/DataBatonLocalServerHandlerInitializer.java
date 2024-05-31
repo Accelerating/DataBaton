@@ -14,6 +14,10 @@ import io.netty.handler.codec.socksx.v5.Socks5CommandRequestDecoder;
 import io.netty.handler.codec.socksx.v5.Socks5InitialRequestDecoder;
 import io.netty.handler.codec.socksx.v5.Socks5ServerEncoder;
 
+
+/**
+ * @author zxx
+ */
 public class DataBatonLocalServerHandlerInitializer extends ChannelInitializer<SocketChannel> {
 
 

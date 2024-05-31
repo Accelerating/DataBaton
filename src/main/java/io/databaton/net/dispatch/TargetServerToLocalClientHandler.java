@@ -7,6 +7,10 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
 
 
+/**
+ * target server  --->  local server
+ * @author zxx
+ */
 public class TargetServerToLocalClientHandler extends ChannelInboundHandlerAdapter {
 
     private final Channel targetServerToLocalClientChannel;

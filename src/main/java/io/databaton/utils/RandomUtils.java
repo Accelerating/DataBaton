@@ -3,6 +3,10 @@ package io.databaton.utils;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
+
+/**
+ * @author zxx
+ */
 public class RandomUtils {
 
     public static byte getRandomByte(){

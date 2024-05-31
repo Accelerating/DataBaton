@@ -1,6 +1,8 @@
 package io.databaton.crypt;
 
-
+/**
+ * @author zxx
+ */
 public interface CryptProcessor {
 
     String BEAN_PREFIX = "crypt_processor_";

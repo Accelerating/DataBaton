@@ -10,6 +10,11 @@ import io.netty.handler.codec.socksx.v5.Socks5InitialResponse;
 import io.netty.util.ReferenceCountUtil;
 import lombok.extern.slf4j.Slf4j;
 
+
+/**
+ * channel handler for socks connection initialization
+ * @author zxx
+ */
 @Slf4j
 public class Socks5InitialRequestHandler extends SimpleChannelInboundHandler<DefaultSocks5InitialRequest> {
 

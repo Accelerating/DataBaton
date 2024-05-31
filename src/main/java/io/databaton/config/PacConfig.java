@@ -15,6 +15,10 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * pac config
+ * @author zxx
+ */
 @Slf4j
 @Data
 public class PacConfig {

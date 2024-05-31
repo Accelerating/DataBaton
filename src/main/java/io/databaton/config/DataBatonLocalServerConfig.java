@@ -2,6 +2,10 @@ package io.databaton.config;
 
 import lombok.Data;
 
+/**
+ * local server config
+ * @author zxx
+ */
 @Data
 public class DataBatonLocalServerConfig {
 

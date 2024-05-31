@@ -1,5 +1,8 @@
 package io.databaton.utils;
 
+/**
+ * @author zxx
+ */
 public class NumberUtils {
 
     public static boolean isOdd(byte num){

@@ -13,6 +13,10 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * dispatch handler, used to dispatch data to target server
+ * @author zxx
+ */
 @Slf4j
 public class DataBatonDispatchHandler extends SimpleChannelInboundHandler<DataBatonDispatchMessageProto.DataBatonDispatchMessage> {
 
