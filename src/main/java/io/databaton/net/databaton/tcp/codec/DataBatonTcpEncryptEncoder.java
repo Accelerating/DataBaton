@@ -13,11 +13,11 @@ import lombok.extern.slf4j.Slf4j;
  * @author zxx
  */
 @Slf4j
-public class DataBatonEncryptEncoder extends MessageToByteEncoder<DataBatonMessage>{
+public class DataBatonTcpEncryptEncoder extends MessageToByteEncoder<DataBatonMessage>{
 
     private DataBatonContext dataBatonContext;
 
-    public DataBatonEncryptEncoder(DataBatonContext dataBatonContext){
+    public DataBatonTcpEncryptEncoder(DataBatonContext dataBatonContext){
         this.dataBatonContext = dataBatonContext;
     }
 

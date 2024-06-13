@@ -3,10 +3,11 @@ package io.databaton.net.socks5;
 import io.databaton.config.DataBatonRemoteServerConfig;
 import io.databaton.config.PacConfig;
 import io.databaton.net.databaton.DataBatonClient;
-import io.databaton.net.databaton.tcp.handler.LocalServerToRemoteServerHandler;
+import io.databaton.net.databaton.tcp.handler.LocalServerToRemoteServerTcpHandler;
 import io.databaton.net.dispatch.LocalClientToTargetServerHandler;
 import io.databaton.net.dispatch.TargetServerToLocalClientHandler;
 import io.databaton.net.databaton.DataBatonContext;
+import io.databaton.utils.IOUtils;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
@@ -91,17 +92,17 @@ public class Socks5CommandRequestHandler extends SimpleChannelInboundHandler<Def
         String targetHost = request.dstAddr();
         int targetPort = request.dstPort();
         Socks5AddressType socks5AddressType = request.dstAddrType();
-        DataBatonClient dataBatonClient = dataBatonContext.createDataBatonClient(clientCtx);
+        DataBatonClient dataBatonClient = dataBatonContext.createDataBatonClient(clientCtx, targetHost, targetPort);
         // dispatch to remote server
-        ChannelFuture future = dataBatonClient.connectToRemoteServer();
+        dataBatonClient.connectToRemoteServer();
         DataBatonRemoteServerConfig remoteServer = dataBatonContext.getDataBatonConfig().getRemoteServer();
-        if(future.sync().isSuccess()){
+        if(dataBatonClient.isActive()){
             log.debug("connect to remote server, host:{}, port:{}", remoteServer.getHost(), remoteServer.getPort());
-            clientCtx.pipeline().addLast(new LocalServerToRemoteServerHandler(future.channel(), targetHost, targetPort, dataBatonContext));
             DefaultSocks5CommandResponse commandResponse = new DefaultSocks5CommandResponse(Socks5CommandStatus.SUCCESS, socks5AddressType);
             clientCtx.writeAndFlush(commandResponse);
             clientCtx.pipeline().remove(Socks5CommandRequestHandler.class);
             clientCtx.pipeline().remove(Socks5CommandRequestDecoder.class);
+            clientCtx.pipeline().addLast(dataBatonClient);
         }else{
             log.error("connect to remote server failed, host:{}, port:{}", remoteServer.getHost(), remoteServer.getPort());
             DefaultSocks5CommandResponse commandResponse = new DefaultSocks5CommandResponse(Socks5CommandStatus.FAILURE, socks5AddressType);

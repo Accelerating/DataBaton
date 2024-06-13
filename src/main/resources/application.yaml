@@ -15,7 +15,7 @@ databaton:
     host: 127.0.0.1
     port: 9987
     # make sure the local server and remote server use the same value
-    token: databaton
+    token: 1234567890
   crypt:
     # see the enum class CryptType
     code: 1

@@ -1,4 +1,4 @@
-package io.databaton.net.dispatch;
+package io.databaton.net.databaton.tcp.handler;
 
 import io.databaton.net.databaton.tcp.model.DataBatonDispatchMessageProto;
 import io.databaton.net.databaton.DataBatonContext;
@@ -14,12 +14,12 @@ import lombok.extern.slf4j.Slf4j;
  * @author zxx
  */
 @Slf4j
-public class RemoteServerToLocalServerHandler extends SimpleChannelInboundHandler<DataBatonDispatchMessageProto.DataBatonDispatchMessage> {
+public class RemoteServerToLocalServerTcpHandler extends SimpleChannelInboundHandler<DataBatonDispatchMessageProto.DataBatonDispatchMessage> {
 
     private final Channel toLocalClientChannel;
     private final DataBatonContext dataBatonContext;
 
-    public RemoteServerToLocalServerHandler(Channel toLocalClientChannel, DataBatonContext dataBatonContext){
+    public RemoteServerToLocalServerTcpHandler(Channel toLocalClientChannel, DataBatonContext dataBatonContext){
         this.toLocalClientChannel = toLocalClientChannel;
         this.dataBatonContext = dataBatonContext;
     }

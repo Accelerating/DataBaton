@@ -27,7 +27,7 @@ public class DataBatonRemoteServer  implements DataBatonServer {
             tcpServer.start();
         }else if(ProtocolType.UDP.equals(protocol)){
             DataBatonUdpServer udpServer = new DataBatonUdpServer();
-            //todo
+            udpServer.start();
         }else{
             log.error("invalid protocol type:{}", protocol);
             System.exit(-1);

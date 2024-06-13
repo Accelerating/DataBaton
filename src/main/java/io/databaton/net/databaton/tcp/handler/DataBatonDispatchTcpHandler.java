@@ -18,13 +18,13 @@ import lombok.extern.slf4j.Slf4j;
  * @author zxx
  */
 @Slf4j
-public class DataBatonDispatchHandler extends SimpleChannelInboundHandler<DataBatonDispatchMessageProto.DataBatonDispatchMessage> {
+public class DataBatonDispatchTcpHandler extends SimpleChannelInboundHandler<DataBatonDispatchMessageProto.DataBatonDispatchMessage> {
 
     private final DataBatonContext dataBatonContext;
 
     private Channel toTargetServerChannel;
 
-    public DataBatonDispatchHandler(DataBatonContext dataBatonContext){
+    public DataBatonDispatchTcpHandler(DataBatonContext dataBatonContext){
         this.dataBatonContext = dataBatonContext;
     }
 
@@ -57,7 +57,7 @@ public class DataBatonDispatchHandler extends SimpleChannelInboundHandler<DataBa
                     .handler(new ChannelInitializer<SocketChannel>(){
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new TargetServerToRemoteServerHandler(ctx.channel(), dataBatonContext));
+                            ch.pipeline().addLast(new TargetServerToRemoteServerTcpHandler(ctx.channel(), dataBatonContext));
                         }
                     });
             ChannelFuture future = bootstrap.connect(msg.getDstHost(), msg.getDstPort()).sync();

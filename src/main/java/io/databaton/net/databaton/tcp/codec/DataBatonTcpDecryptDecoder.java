@@ -18,11 +18,11 @@ import java.util.List;
  * @author zxx
  */
 @Slf4j
-public class DataBatonDecryptDecoder extends ByteToMessageDecoder {
+public class DataBatonTcpDecryptDecoder extends ByteToMessageDecoder {
 
     private final DataBatonContext dataBatonContext;
 
-    public DataBatonDecryptDecoder(DataBatonContext dataBatonContext){
+    public DataBatonTcpDecryptDecoder(DataBatonContext dataBatonContext){
         this.dataBatonContext = dataBatonContext;
     }
 

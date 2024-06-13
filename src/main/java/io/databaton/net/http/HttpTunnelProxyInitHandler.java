@@ -3,10 +3,7 @@ package io.databaton.net.http;
 import io.databaton.config.DataBatonRemoteServerConfig;
 import io.databaton.config.PacConfig;
 import io.databaton.net.databaton.DataBatonClient;
-import io.databaton.net.databaton.tcp.codec.DataBatonDecryptDecoder;
-import io.databaton.net.databaton.tcp.codec.DataBatonEncryptEncoder;
-import io.databaton.net.databaton.tcp.handler.LocalServerToRemoteServerHandler;
-import io.databaton.net.dispatch.RemoteServerToLocalServerHandler;
+import io.databaton.net.databaton.tcp.handler.LocalServerToRemoteServerTcpHandler;
 import io.databaton.net.dispatch.LocalClientToTargetServerHandler;
 import io.databaton.net.dispatch.TargetServerToLocalClientHandler;
 import io.databaton.net.databaton.DataBatonContext;
@@ -14,11 +11,9 @@ import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.http.*;
 import lombok.extern.slf4j.Slf4j;
@@ -85,25 +80,25 @@ public class HttpTunnelProxyInitHandler extends SimpleChannelInboundHandler<Http
 
     }
 
-    private void proxyDispatch(String targetHost, int targetPort, ChannelHandlerContext clientCtx) throws InterruptedException {
+    private void proxyDispatch(String targetHost, int targetPort, ChannelHandlerContext clientCtx) throws Exception {
 
-        DataBatonClient dataBatonClient = dataBatonContext.createDataBatonClient(clientCtx);
+        DataBatonClient dataBatonClient = dataBatonContext.createDataBatonClient(clientCtx, targetHost, targetPort);
         DataBatonRemoteServerConfig remoteServer = dataBatonContext.getDataBatonConfig().getRemoteServer();
 
-        ChannelFuture future = dataBatonClient.connectToRemoteServer();
-        if(future.sync().isSuccess()){
+        dataBatonClient.connectToRemoteServer();
+        if(dataBatonClient.isActive()){
             log.debug("connect to remote server, host:{}, port:{}", remoteServer.getHost(), remoteServer.getPort());
             FullHttpResponse resp = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
             clientCtx.writeAndFlush(resp);
             clientCtx.pipeline().remove(HttpTunnelProxyInitHandler.class);
             clientCtx.pipeline().remove(HttpServerCodec.class);
             clientCtx.pipeline().remove(HttpObjectAggregator.class);
-            clientCtx.pipeline().addLast(new LocalServerToRemoteServerHandler(future.channel(), targetHost, targetPort, dataBatonContext));
+            clientCtx.pipeline().addLast(dataBatonClient);
         }else{
             log.error("connect to remote server failed, host:{}, port:{}", remoteServer.getHost(), remoteServer.getPort());
             FullHttpResponse resp = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.BAD_REQUEST);
             clientCtx.writeAndFlush(resp);
-            future.channel().close();
+            clientCtx.close();
         }
 
     }

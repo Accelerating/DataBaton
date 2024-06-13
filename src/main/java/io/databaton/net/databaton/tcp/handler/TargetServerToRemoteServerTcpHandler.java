@@ -17,13 +17,13 @@ import lombok.extern.slf4j.Slf4j;
  * @author zxx
  */
 @Slf4j
-public class TargetServerToRemoteServerHandler extends ChannelInboundHandlerAdapter {
+public class TargetServerToRemoteServerTcpHandler extends ChannelInboundHandlerAdapter {
 
     private final Channel toLocalServerChannel;
 
     private final DataBatonContext dataBatonContext;
 
-    public TargetServerToRemoteServerHandler(Channel toLocalServerChannel, DataBatonContext dataBatonContext) {
+    public TargetServerToRemoteServerTcpHandler(Channel toLocalServerChannel, DataBatonContext dataBatonContext) {
         this.toLocalServerChannel = toLocalServerChannel;
         this.dataBatonContext = dataBatonContext;
     }

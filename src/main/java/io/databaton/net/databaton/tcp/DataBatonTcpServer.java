@@ -1,7 +1,7 @@
 package io.databaton.net.databaton.tcp;
 
 import io.databaton.net.databaton.DataBatonContext;
-import io.databaton.net.databaton.server.DataBatonRemoteServerHandlerInitializer;
+import io.databaton.net.databaton.tcp.handler.DataBatonRemoteServerTcpHandlerInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -26,7 +26,7 @@ public class DataBatonTcpServer {
         ServerBootstrap bootstrap = new ServerBootstrap();
         bootstrap.group(dataBatonContext.getBossGroup(), dataBatonContext.getWorkerGroup())
                 .channel(NioServerSocketChannel.class)
-                .childHandler(new DataBatonRemoteServerHandlerInitializer(dataBatonContext));
+                .childHandler(new DataBatonRemoteServerTcpHandlerInitializer(dataBatonContext));
         int remoteServerPort = dataBatonContext.getDataBatonConfig().getRemoteServer().getPort();
         bootstrap.bind(remoteServerPort).addListener((ChannelFutureListener) channelFuture -> {
             if (channelFuture.isSuccess()) {

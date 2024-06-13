@@ -13,11 +13,11 @@ import lombok.extern.slf4j.Slf4j;
  * @author zxx
  */
 @Slf4j
-public class DataBatonAuthenticationHandler extends SimpleChannelInboundHandler<DataBatonLoginMessageProto.DataBatonLoginMessage> {
+public class DataBatonAuthenticationTcpHandler extends SimpleChannelInboundHandler<DataBatonLoginMessageProto.DataBatonLoginMessage> {
 
     private final DataBatonContext dataBatonContext;
 
-    public DataBatonAuthenticationHandler(DataBatonContext dataBatonContext) {
+    public DataBatonAuthenticationTcpHandler(DataBatonContext dataBatonContext) {
         this.dataBatonContext = dataBatonContext;
     }
 

@@ -50,12 +50,12 @@ public class DataBatonContext implements ApplicationContextAware {
     }
 
 
-    public DataBatonClient createDataBatonClient(ChannelHandlerContext clientCtx){
+    public DataBatonClient createDataBatonClient(ChannelHandlerContext clientCtx, String dstHost, int dstPost){
         String protocol = dataBatonConfig.getProtocol();
         if(ProtocolType.TCP.equals(protocol)){
-            return new DataBatonTcpClient(this, clientCtx);
+            return new DataBatonTcpClient(this, clientCtx, dstHost, dstPost);
         }else if(ProtocolType.UDP.equals(protocol)){
-            return new DataBatonUdpClient();
+            return new DataBatonUdpClient(this, clientCtx, dstHost, dstPost);
         }
         return null;
     }

@@ -18,7 +18,8 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class DateTime {
 
-    public static final DateTimeFormatter DEFAULT_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static final String DEFAULT_TIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
+    public static final DateTimeFormatter DEFAULT_FORMATTER = DateTimeFormatter.ofPattern(DEFAULT_TIME_PATTERN);
 
     private final long timestamp;
 

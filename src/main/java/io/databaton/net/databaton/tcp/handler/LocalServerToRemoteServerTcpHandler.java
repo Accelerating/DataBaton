@@ -3,6 +3,7 @@ package io.databaton.net.databaton.tcp.handler;
 import com.google.protobuf.ByteString;
 import io.databaton.config.DataBatonRemoteServerConfig;
 import io.databaton.enums.OpType;
+import io.databaton.net.databaton.DataBatonClient;
 import io.databaton.net.databaton.tcp.model.DataBatonDispatchMessageProto;
 import io.databaton.net.databaton.tcp.model.DataBatonLoginMessageProto;
 import io.databaton.net.databaton.tcp.model.DataBatonMessage;
@@ -19,19 +20,20 @@ import lombok.extern.slf4j.Slf4j;
  * @author zxx
  */
 @Slf4j
-public class LocalServerToRemoteServerHandler extends ChannelInboundHandlerAdapter {
+@Deprecated
+public class LocalServerToRemoteServerTcpHandler extends ChannelInboundHandlerAdapter {
 
     private static final int STATE_INIT = 0;
     private static final int STATE_CONNECTED = 1;
     private int status = STATE_INIT;
 
     private final DataBatonContext dataBatonContext;
-    private final Channel toRemoteServerChannel;
+    private final DataBatonClient dataBatonClient;
     private final String dstHost;
     private final int dstPort;
 
-    public LocalServerToRemoteServerHandler(Channel toRemoteServerChannel, String dstHost, int dstPort, DataBatonContext dataBatonContext){
-        this.toRemoteServerChannel = toRemoteServerChannel;
+    public LocalServerToRemoteServerTcpHandler(DataBatonClient dataBatonClient, String dstHost, int dstPort, DataBatonContext dataBatonContext){
+        this.dataBatonClient = dataBatonClient;
         this.dstHost = dstHost;
         this.dstPort = dstPort;
         this.dataBatonContext = dataBatonContext;
@@ -42,7 +44,7 @@ public class LocalServerToRemoteServerHandler extends ChannelInboundHandlerAdapt
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf buf = (ByteBuf) msg;
         try{
-            if(toRemoteServerChannel.isActive()){
+            if(dataBatonClient.isActive()){
                 byte[] data = new byte[buf.readableBytes()];
                 buf.readBytes(data);
                 if(status == STATE_INIT){
@@ -54,7 +56,7 @@ public class LocalServerToRemoteServerHandler extends ChannelInboundHandlerAdapt
                     builder.setData(ByteString.copyFrom(data));
                     status = STATE_CONNECTED;
                     byte[] payload = builder.build().toByteArray();
-                    toRemoteServerChannel.writeAndFlush(new DataBatonMessage(OpType.LOGIN.genOperationTypeBytes(), payload));
+                    dataBatonClient.sendData(new DataBatonMessage(OpType.LOGIN.genOperationTypeBytes(), payload));
                     log.debug("auth to remote server, host:{}, port:{}", dstHost, dstPort);
                 }else if(status == STATE_CONNECTED){
                     DataBatonDispatchMessageProto.DataBatonDispatchMessage.Builder builder = DataBatonDispatchMessageProto.DataBatonDispatchMessage.newBuilder();
@@ -62,7 +64,7 @@ public class LocalServerToRemoteServerHandler extends ChannelInboundHandlerAdapt
                     builder.setDstPort(dstPort);
                     builder.setData(ByteString.copyFrom(data));
                     byte[] payload = builder.build().toByteArray();
-                    toRemoteServerChannel.writeAndFlush(new DataBatonMessage(OpType.DISPATCH.genOperationTypeBytes(), payload));
+                    dataBatonClient.sendData(new DataBatonMessage(OpType.DISPATCH.genOperationTypeBytes(), payload));
 
                     log.debug("dispatch data to remote server, host:{}, port:{}", dstHost, dstPort);
 

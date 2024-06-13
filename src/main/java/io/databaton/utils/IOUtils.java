@@ -10,13 +10,17 @@ import java.io.Closeable;
 @Slf4j
 public class IOUtils {
 
-    public static void release(Closeable resource){
-        try{
-            if(resource != null){
-                resource.close();
+    public static void close(Closeable... resources){
+
+        if(resources != null){
+            for (Closeable resource : resources) {
+                try{
+                    resource.close();
+                }catch (Exception e){
+                    log.error("close resource failed, {}", resource, e);
+                }
+
             }
-        }catch (Exception e){
-            log.error("release resource failed", e);
         }
 
     }
