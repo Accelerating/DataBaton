@@ -43,11 +43,11 @@ public enum OpType {
     }
 
     public static OpType translateOperationType(byte[] operationTypeBytes){
-        int opb1 = NumberUtils.isOdd(operationTypeBytes[3]) ? 1 : 0;
-        int opb2 = NumberUtils.isOdd(operationTypeBytes[2]) ? 1 : 0;
-        int opb3 = NumberUtils.isOdd(operationTypeBytes[1]) ? 1 : 0;
-        int opb4 = NumberUtils.isOdd(operationTypeBytes[0]) ? 1 : 0;
-        int code = (opb4 << 3) + (opb3 << 2) + (opb2 << 1) + opb1;
+        int opb0 = NumberUtils.isOdd(operationTypeBytes[3]) ? 1 : 0;
+        int opb1 = NumberUtils.isOdd(operationTypeBytes[2]) ? 1 : 0;
+        int opb2 = NumberUtils.isOdd(operationTypeBytes[1]) ? 1 : 0;
+        int opb3 = NumberUtils.isOdd(operationTypeBytes[0]) ? 1 : 0;
+        int code = (opb3 << 3) + (opb2 << 2) + (opb1 << 1) + opb0;
         return findByCode(code);
     }
 

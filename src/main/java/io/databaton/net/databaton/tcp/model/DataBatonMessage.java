@@ -18,22 +18,22 @@ public class DataBatonMessage {
     /**
      * operation part1
      */
-    private byte op1;
+    private byte op0;
 
     /**
      * operation part2
      */
-    private byte op2;
+    private byte op1;
 
     /**
      * operation part3
      */
-    private byte op3;
+    private byte op2;
 
     /**
      * operation part4
      */
-    private byte op4;
+    private byte op3;
 
     /**
      * payload size
@@ -47,10 +47,10 @@ public class DataBatonMessage {
     private byte[] payload;
 
     public DataBatonMessage(byte[] ops, byte[] payload){
-        this.op1 = ops[3];
-        this.op2 = ops[2];
-        this.op3 = ops[1];
-        this.op4 = ops[0];
+        this.op0 = ops[3];
+        this.op1 = ops[2];
+        this.op2 = ops[1];
+        this.op3 = ops[0];
         this.payload = payload;
         this.payloadLength = payload.length;
     }
@@ -62,12 +62,12 @@ public class DataBatonMessage {
 
 
     public byte[] getOperateTypeBytes(){
-        return new byte[]{op4, op3, op2, op1};
+        return new byte[]{op3, op2, op1, op0};
     }
 
 
     public String toString(){
-        byte[] opbs = new byte[]{op4, op3, op2, op1};
+        byte[] opbs = new byte[]{op3, op2, op1, op0};
         return "opbs:" + Arrays.toString(opbs) + ", payloadLength:" + payloadLength;
     }
 

@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class RandomUtils {
 
     public static byte getRandomByte(){
-        return (byte) ThreadLocalRandom.current().nextInt(0, Byte.MAX_VALUE + 1);
+        return (byte) ThreadLocalRandom.current().nextInt(Byte.MIN_VALUE, Byte.MAX_VALUE + 1);
     }
 
     public static byte getRandomOddByte() {
@@ -25,7 +25,7 @@ public class RandomUtils {
         return (byte) (getRandomOddByte() + 1);
     }
 
-    public static long getRandomNum(int start, int end) {
+    public static int getRandomInt(int start, int end) {
         if(start == end){
             return start;
         }
@@ -34,5 +34,15 @@ public class RandomUtils {
 
     public static String getRandomStr(){
         return UUID.randomUUID().toString().replace("-", "");
+    }
+
+    public static boolean getRandomBool(){
+        int randomInt = getRandomInt(0, 1);
+        return randomInt < 1;
+    }
+
+    public int selectRandomNum(int... numbers){
+        int idx = getRandomInt(0, numbers.length - 1);
+        return numbers[idx];
     }
 }

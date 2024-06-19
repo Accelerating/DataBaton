@@ -2,10 +2,14 @@ package io.databaton.net.databaton.tcp.codec;
 
 import io.databaton.net.databaton.tcp.model.DataBatonMessage;
 import io.databaton.net.databaton.DataBatonContext;
+import io.databaton.utils.NumberUtils;
+import io.databaton.utils.RandomUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.Arrays;
 
 
 /**
@@ -28,14 +32,14 @@ public class DataBatonTcpEncryptEncoder extends MessageToByteEncoder<DataBatonMe
         byte[] payload = dataBatonContext.getCryptProcessor().encrypt(msg.getPayload());
 
 
+        out.writeByte(msg.getOp0());
         out.writeByte(msg.getOp1());
         out.writeByte(msg.getOp2());
         out.writeByte(msg.getOp3());
-        out.writeByte(msg.getOp4());
         out.writeInt(payload.length);
         out.writeBytes(payload);
 
-        log.debug("write data baton message --> {},", msg);
+        log.debug("write baton message --> op:{}", msg);
 
     }
 
