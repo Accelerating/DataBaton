@@ -7,8 +7,6 @@ databaton:
   # if this value is empty, then all connections will use the proxy.
   pac:
   local-server:
-    # socks5 or http
-    proxy-type: socks5
     port: 9988
   remote-server:
     # your remote server ip address
